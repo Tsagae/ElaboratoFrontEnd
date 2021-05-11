@@ -5,11 +5,11 @@ import "../globalStyle/globalStyle.css";
 
 export default function Navbar({ children }) {
   return (
-    <div>
+    <div className={styles.container}>
       <ul>
           <li>
             <div>
-                <Link className="mioLink" to="../pages/index.js"> Home </Link>
+                <Link to="../pages/index.js"> Home </Link>
             </div>
             <div>
                 Funct1

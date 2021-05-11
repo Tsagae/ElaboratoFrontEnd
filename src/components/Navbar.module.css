@@ -3,7 +3,6 @@ ul{
    margin: 0;
    padding: 0;
    overflow: hidden;
-   background-color: lightblue;
 }
 
 li div{
@@ -11,4 +10,8 @@ li div{
    display: inline;
    float: left;
    padding: 16px;
+}
+
+.container{
+   background-color: #092346;
 }
