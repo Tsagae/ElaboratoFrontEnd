@@ -1,14 +1,17 @@
 .bar {
   vertical-align: top;
   text-align: center;
-  padding: 0 5px 5px;
+  padding-bottom: 5px;
+  padding-left: 25px;
   min-width: 250px;
   border: none;
   background: 0 0;
   border-bottom: 1px solid #fff;
   color: #fff;
   outline: none;
-  font-size: 26px;
+  font-size: 25px;
+  width: 300px;
+  margin-left: 60px;
 }
 
 .container {
@@ -16,4 +19,21 @@
   justify-content: center;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+#Search::-webkit-search-cancel-button {
+  visibility: hidden;
+}
+
+input[type="search" i]::-webkit-search-cancel-button  {
+  visibility: collapse;
+}
+
+.container button {
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
 }
