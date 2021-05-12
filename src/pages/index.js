@@ -3,6 +3,8 @@ import "../globalStyle/globalStyle.css";
 import Layout from "../components/Layout";
 import Searchbar from "../components/Searchbar";
 import Graph from "../components/Graph";
+import * as styles from "./index.module.css";
+
 const IndexPage = () => {
   return (
     <div>
@@ -10,7 +12,14 @@ const IndexPage = () => {
         <div>
           <h1>Content</h1>
           <Searchbar />
-          <Graph source="blabla">OOOOO</Graph>
+          <div className={styles.mainGraphs}>
+            <div className={styles.graphWrapper}>
+              <Graph source="" />
+            </div>
+            <div className={styles.graphWrapper}>
+              <Graph source="" />
+            </div>
+          </div>
         </div>
       </Layout>
     </div>
