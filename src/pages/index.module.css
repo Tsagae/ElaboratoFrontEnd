@@ -1,10 +1,10 @@
-.mainGraphs{
+.mainCharts{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
 }
 
-.graphWrapper{
+.chartWrapper{
     width: 100%;
 }
