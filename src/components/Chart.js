@@ -12,17 +12,8 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    const fetch = require('node-fetch');
-    /*
-    fetch("https://mzagheno.sytes.net/menu", {
-      method: 'GET',
-      mode: 'no-cors',
-    })
+    fetch("https://mzagheno.sytes.net/menu")
     .then(res => res.text())
-    .then(data => this.setState({ result: data }));
-  */
-    fetch('https://mzagheno.sytes.net/menu')
-    .then(response => response.json())
     .then(data => this.setState({ result: data }));
   }
 
