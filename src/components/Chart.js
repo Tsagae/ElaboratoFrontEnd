@@ -12,7 +12,7 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://mzagheno.sytes.net/menu")
+    fetch("https://mzagheno.sytes.net/queryDB/getHistoricalEsportData_Post2016")
     .then(res => res.text())
     .then(data => this.setState({ result: data }));
   }
@@ -24,7 +24,7 @@ export default class Chart extends React.Component {
     };
 
     //TwitchGlobal_HoursWatched Data
-    const TwitchGlobal_HoursWatched = [
+    var TwitchGlobal_HoursWatched = [
       { Date: "2016-01-31T23:00:00.000Z", Hours_watched: 441859897 },
       { Date: "2016-02-29T23:00:00.000Z", Hours_watched: 490669308 },
       { Date: "2016-03-31T22:00:00.000Z", Hours_watched: 377975447 },
