@@ -5,10 +5,12 @@ import Navbar from "./Navbar";
 
 export default function Layout({ children }) {
   return (
-    <div className={styles.container}>
-      <Navbar />
-      <h1>Titolo</h1>
-      {children}
+    <div>
+      <Navbar></Navbar>
+      <div className={styles.container}>
+        <h1>Titolo</h1>
+        {children}
+      </div>
     </div>
   );
 }

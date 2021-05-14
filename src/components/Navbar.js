@@ -6,6 +6,7 @@ import "../globalStyle/globalStyle.css";
 export default function Navbar({ children }) {
   return (
     <div className={styles.container}>
+      <header>
       <ul>
         <li>
           <div>
@@ -17,6 +18,7 @@ export default function Navbar({ children }) {
           <div>Funct2</div>
         </li>
       </ul>
+      </header>
     </div>
   );
 }
