@@ -3,15 +3,16 @@ Link{
 }
 
 a{
-    color: white;
+    color: #404244;
 }
 
 body{
-    background-color: #124990;
-    color: white;
+    background-color: #ffffff;
+    color: #404244;
+    margin: 0px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgba(218, 218, 218, 0.521);
+    color: #404244a4;
     opacity: 1; /* Firefox */
   }
