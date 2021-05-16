@@ -8,8 +8,14 @@ export default class Chart extends React.Component {
     super(props);
     this.state = {
       labels: [],
-      data: []
+      data: [],
     };
+  }
+
+  componentDidMount() {
+    fetch("https://mzagheno.sytes.net/queryDB/getTwitchGlobal_HoursWatched")
+      .then((res) => res.text())
+      .then((data) => this.processChartData(JSON.parse(data)));
   }
 
   processChartData(data) {
@@ -19,8 +25,8 @@ export default class Chart extends React.Component {
     };
 
     //TwitchGlobal_HoursWatched Data
-    var labels_TwitchGlobal_HoursWatched = [];
-    var data_TwitchGlobal_HoursWatched = [];
+    let labels_TwitchGlobal_HoursWatched = [];
+    let data_TwitchGlobal_HoursWatched = [];
 
     data.forEach((element) => {
       let date = new Date(element.Date);
@@ -30,18 +36,10 @@ export default class Chart extends React.Component {
       data_TwitchGlobal_HoursWatched.push(element.Hours_watched);
     });
 
-
-
     this.setState({
       labels: labels_TwitchGlobal_HoursWatched,
       data: data_TwitchGlobal_HoursWatched,
     });
-  }
-
-  componentDidMount() {
-    fetch("https://mzagheno.sytes.net/queryDB/getTwitchGlobal_HoursWatched")
-      .then((res) => res.text())
-      .then((data) => this.processChartData(JSON.parse(data)));
   }
 
   render() {
@@ -95,7 +93,6 @@ export default class Chart extends React.Component {
             },
           }}
         />
-        <p>{this.state.result}</p>
       </div>
     );
   }
