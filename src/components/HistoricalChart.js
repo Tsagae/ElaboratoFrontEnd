@@ -15,7 +15,7 @@ export default class HistoricalChart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://mzagheno.sytes.net/queryDB/getHistoricalEsportData_Post2016")
+    fetch("https://mzaghenoapi.sytes.net/queryDB/getHistoricalEsportData_Post2016")
       .then((res) => res.text())
       .then((data) => this.processChartData(JSON.parse(data)));
   }

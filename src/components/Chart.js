@@ -13,7 +13,7 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://mzagheno.sytes.net/queryDB/getTwitchGlobal_HoursWatched")
+    fetch("https://mzaghenoapi.sytes.net/queryDB/getTwitchGlobal_HoursWatched")
       .then((res) => res.text())
       .then((data) => this.processChartData(JSON.parse(data)));
   }

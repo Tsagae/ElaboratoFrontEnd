@@ -13,7 +13,7 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://mzagheno.sytes.net/queryDB/getMostViewed12Months")
+    fetch("https://mzaghenoapi.sytes.net/queryDB/getMostViewed12Months")
       .then((res) => res.text())
       .then((data) => this.processChartData(JSON.parse(data)));
   }
