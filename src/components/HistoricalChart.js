@@ -50,16 +50,9 @@ export default class HistoricalChart extends React.Component {
   }
 
   render() {
-    let data={
+    let data = {
       labels: this.state.labels,
       datasets: [
-        {
-          label: "Number of Tournaments",
-          data: this.state.data_NofTournaments,
-          backgroundColor: "rgba(168,50,50,1)",
-          borderColor: "rgba(0,0,0,1)",
-          borderWidth: 1,
-        },
         {
           label: "Earnings",
           data: this.state.data_Earnings,
@@ -67,17 +60,10 @@ export default class HistoricalChart extends React.Component {
           borderColor: "rgba(0,0,0,1)",
           borderWidth: 1,
         },
-        {
-          label: "Number of Players",
-          data: this.state.data_NofPlayers,
-          backgroundColor: "rgba(168,50,50,1)",
-          borderColor: "rgba(0,0,0,1)",
-          borderWidth: 1,
-        },
       ],
     }
 
-    let options={
+    let options = {
       maintainAspectRatio: false,
       title: {
         display: true,
@@ -110,7 +96,7 @@ export default class HistoricalChart extends React.Component {
 
     return (
       <div>
-        <Line data={data} options={options} className={this.props.className}/>
+        <Line data={data} options={options} className={this.props.className} />
       </div>
     );
   }
