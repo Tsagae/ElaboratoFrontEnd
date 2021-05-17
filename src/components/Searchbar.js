@@ -10,13 +10,13 @@ export default function Searchbar({ children }) {
       <form>
         <input type="search" className={styles.bar} placeholder="Scrivi qua" />
       </form>
-      <button>
+      <button style={styles.btnImage} >
         <StaticImage
-          src="../../public/images/searchIcon.png"
+          src="../images/searchIcon.png"
           placeholder="blurred"
           layout="fixed"
-          width={"30px"}
-          height={"30px"}
+          width={30}
+          height={30}
         />
       </button>
     </div>
