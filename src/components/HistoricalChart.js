@@ -50,65 +50,67 @@ export default class HistoricalChart extends React.Component {
   }
 
   render() {
+    let data={
+      labels: this.state.labels,
+      datasets: [
+        {
+          label: "Number of Tournaments",
+          data: this.state.data_NofTournaments,
+          backgroundColor: "rgba(168,50,50,1)",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Earnings",
+          data: this.state.data_Earnings,
+          backgroundColor: "rgba(168,50,50,1)",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Number of Players",
+          data: this.state.data_NofPlayers,
+          backgroundColor: "rgba(168,50,50,1)",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 1,
+        },
+      ],
+    }
+
+    let options={
+      maintainAspectRatio: false,
+      title: {
+        display: true,
+        text: "Average Rainfall per month",
+        fontSize: 20,
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+        },
+      },
+      plugins: {
+        /*decimation: {                
+        enable: true,
+        algorithm: 'min-max'
+      },*/
+      },
+      legend: {
+        display: true,
+        position: "top",
+        lables: {
+          font: {
+            style: "italic",
+            size: 24,
+          },
+        },
+      },
+    }
+
     return (
       <div>
-        <Line
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                label: "Number of Tournaments",
-                data: this.state.data_NofTournaments,
-                backgroundColor: "rgba(168,50,50,1)",
-                borderColor: "rgba(0,0,0,1)",
-                borderWidth: 1,
-              },
-              {
-                label: "Earnings",
-                data: this.state.data_Earnings,
-                backgroundColor: "rgba(168,50,50,1)",
-                borderColor: "rgba(0,0,0,1)",
-                borderWidth: 1,
-              },
-              {
-                label: "Number of Players",
-                data: this.state.data_NofPlayers,
-                backgroundColor: "rgba(168,50,50,1)",
-                borderColor: "rgba(0,0,0,1)",
-                borderWidth: 1,
-              },
-            ],
-          }}
-          options={{
-            title: {
-              display: true,
-              text: "Average Rainfall per month",
-              fontSize: 20,
-            },
-            layout: {
-              padding: {
-                left: 0,
-                right: 0,
-              },
-            },
-            plugins: {
-              /*decimation: {
-              enable: true,
-              algorithm: 'min-max'
-            },*/
-            },
-            legend: {
-              display: true,
-              position: "top",
-              lables: {
-                font: {
-                  style: "italic",
-                  size: 24,
-                },
-              },
-            },
-          }}
-        />
+        <Line data={data} options={options} className={this.props.className}/>
       </div>
     );
   }

@@ -40,57 +40,59 @@ export default class Chart extends React.Component {
   }
 
   render() {
+
+    let data={
+      labels: this.state.labels,
+      datasets: [
+        {
+          label: "Hours Watched",
+          data: this.state.data,
+          backgroundColor: "rgba(56,161,69,1)",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 1,
+        },
+      ],
+    }
+    let options={
+      maintainAspectRatio: false,
+      indexAxis: 'y',
+      //parsing: false, not working
+      title: {
+        /*
+      display: true,
+      text: "Average labels: this.state.labels,Rainfall per month",
+      fontSize: 20,*/
+        //not working
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+        },
+      },
+      plugins: {
+        /*
+      decimation: {
+        enabled: false,
+        algorithm: "min-max",
+      },*/
+        //not working
+      },
+      legend: {
+        display: true,
+        position: "top",
+        labels: {
+          font: {
+            style: "italic",
+            size: 24,
+          },
+        },
+      },
+    }
+
     return (
       <div>
-        <Bar
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                label: "Hours Watched",
-                data: this.state.data,
-                backgroundColor: "rgba(56,161,69,1)",
-                borderColor: "rgba(0,0,0,1)",
-                borderWidth: 1,
-              },
-            ],
-          }}
-          options={{
-            indexAxis: 'y',
-            //parsing: false, not working
-            title: {
-              /*
-            display: true,
-            text: "Average Rainfall per month",
-            fontSize: 20,*/
-              //not working
-            },
-            layout: {
-              padding: {
-                left: 0,
-                right: 0,
-              },
-            },
-            plugins: {
-              /*
-            decimation: {
-              enabled: false,
-              algorithm: "min-max",
-            },*/
-              //not working
-            },
-            legend: {
-              display: true,
-              position: "top",
-              labels: {
-                font: {
-                  style: "italic",
-                  size: 24,
-                },
-              },
-            },
-          }}
-        />
+        <Bar data={data} options={options} className={this.props.className} />
       </div>
     );
   }

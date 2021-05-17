@@ -43,55 +43,63 @@ export default class Chart extends React.Component {
   }
 
   render() {
+
+    let data = {
+      
+      labels: this.state.labels,
+      datasets: [
+        {
+          label: "Hours Watched",
+          data: this.state.data,
+          backgroundColor: "rgba(56,161,69,1)",
+          borderColor: "rgba(0,0,0,1)",
+          borderWidth: 1,
+        },
+      ],
+    };
+
+    let options = {
+      maintainAspectRatio: false,
+      //parsing: false, not working
+      title: {
+        /*
+      display: true,
+      text: "Average Rainfall per month",
+      fontSize: 20,*/
+        //not working
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+        },
+      },
+      plugins: {
+        /*
+      decimation: {
+        enabled: false,
+        algorithm: "min-max",
+      },*/
+        //not working
+      },
+      legend: {
+        display: true,
+        position: "top",
+        labels: {
+          font: {
+            style: "italic",
+            size: 24,
+          },
+        },
+      },
+    };
+
     return (
       <div>
         <Line
-          data={{
-            labels: this.state.labels,
-            datasets: [
-              {
-                label: "Hours Watched",
-                data: this.state.data,
-                backgroundColor: "rgba(56,161,69,1)",
-                borderColor: "rgba(0,0,0,1)",
-                borderWidth: 1,
-              },
-            ],
-          }}
-          options={{
-            //parsing: false, not working
-            title: {
-              /*
-            display: true,
-            text: "Average Rainfall per month",
-            fontSize: 20,*/
-              //not working
-            },
-            layout: {
-              padding: {
-                left: 0,
-                right: 0,
-              },
-            },
-            plugins: {
-              /*
-            decimation: {
-              enabled: false,
-              algorithm: "min-max",
-            },*/
-              //not working
-            },
-            legend: {
-              display: true,
-              position: "top",
-              labels: {
-                font: {
-                  style: "italic",
-                  size: 24,
-                },
-              },
-            },
-          }}
+          data={data}
+          options={options}
+          className={this.props.className}
         />
       </div>
     );
