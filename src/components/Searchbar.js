@@ -15,8 +15,9 @@ export default function Searchbar({ children }) {
           src="../../public/images/searchIcon.png"
           placeholder="blurred"
           layout="fixed"
-          width={50}
-          height={50}
+          width={"30px"}
+          height={"30px"}
+          className={styles.img}
         />
       </button>
     </div>

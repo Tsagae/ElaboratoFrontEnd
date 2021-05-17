@@ -1,39 +1,45 @@
 .bar {
-  vertical-align: top;
   text-align: center;
   padding-bottom: 5px;
   padding-left: 25px;
-  min-width: 250px;
+  min-width: 150px;
   border: none;
   background: 0 0;
   border-bottom: 1px solid #404244a4;
   color: #404244a4;
   outline: none;
   font-size: 25px;
-  width: 300px;
+  max-width: 250px;
   margin-left: 60px;
+}
+
+.img {
 }
 
 .container {
   display: flex;
   justify-content: center;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 #Search::-webkit-search-cancel-button {
   visibility: hidden;
 }
 
-input[type="search" i]::-webkit-search-cancel-button  {
+input[type="search" i]::-webkit-search-cancel-button {
   visibility: collapse;
 }
 
 .container button {
   background-color: Transparent;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   border: none;
-  cursor:pointer;
+  cursor: pointer;
   overflow: hidden;
-  outline:none;
+  outline: none;
+}
+
+@media screen and (orientation: portrait) {
+  .img {
+    width: 10px;
+  }
 }

@@ -15,22 +15,22 @@ const IndexPage = () => {
           <h1>Content</h1>
           <Searchbar />
           <div className={styles.indexLayout}>
-            <div className={styles.mainCharts}>
+            <div className={styles.mainCharts} >
               <div className={styles.chartWrapper}>
-                <Chart source="" />
+                <Chart className={styles.chart1} />
               </div>
               <div className={styles.chartWrapper}>
-                <HistoricalChart source="" />
+                <HistoricalChart className={styles.chart1} />
               </div>
             </div>
             <div className={styles.mainCharts}>
-                <div className={styles.chartWrapper}>
-                  <MostViewed12Months />
-                </div>
-                <div className={styles.chartWrapper}>
-                  <MostViewed12Months />
-                </div>
+              <div className={styles.chartWrapper}>
+                <MostViewed12Months className={styles.chart2} />
               </div>
+              <div className={styles.chartWrapper}>
+                <MostViewed12Months className={styles.chart2} />
+              </div>
+            </div>
           </div>
         </div>
       </Layout>

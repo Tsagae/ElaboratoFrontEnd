@@ -1,14 +1,42 @@
-.mainCharts{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
+.mainCharts {
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.chartWrapper{
+.chartWrapper {
+  width: 50%;
+}
+
+.indexLayout {
+  background-color: white;
+}
+
+.chart1 {
+  height: 300px;
+}
+
+.chart2 {
+  height: 400px;
+}
+
+/*
+@media screen and (max-width: 1000px) {
+    .mainCharts{
+        display: block;
+    }
+
+    .chartWrapper{
+        width: 100%;
+    }
+}
+*/
+
+@media screen and (orientation: portrait) {
+  .mainCharts {
+    display: block;
+  }
+
+  .chartWrapper {
     width: 100%;
-}
-
-.indexLayout{
-    background-color: white;
+  }
 }
