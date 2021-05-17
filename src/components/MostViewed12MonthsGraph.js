@@ -1,9 +1,9 @@
 import * as React from "react";
 import "../globalStyle/globalStyle.css";
 import { Bar } from "react-chartjs-2";
-import { Line } from "react-chartjs-2";
 
-export default class Chart extends React.Component {
+
+export default class MostViewed12MonthsGraph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,21 +49,15 @@ export default class Chart extends React.Component {
           data: this.state.data,
           backgroundColor: "rgba(56,161,69,1)",
           borderColor: "rgba(0,0,0,1)",
-          borderWidth: 1,
+          borderWidth: 0,
         },
       ],
     }
-    let options={
-      maintainAspectRatio: false,
+
+    let options = {
       indexAxis: 'y',
-      //parsing: false, not working
-      title: {
-        /*
-      display: true,
-      text: "Average labels: this.state.labels,Rainfall per month",
-      fontSize: 20,*/
-        //not working
-      },
+      responsive: true,
+      maintainAspectRatio: false,
       layout: {
         padding: {
           left: 0,
@@ -71,24 +65,21 @@ export default class Chart extends React.Component {
         },
       },
       plugins: {
-        /*
-      decimation: {
-        enabled: false,
-        algorithm: "min-max",
-      },*/
-        //not working
-      },
-      legend: {
-        display: true,
-        position: "top",
         labels: {
-          font: {
-            style: "italic",
-            size: 24,
-          },
+          fontColor: "#a83232", //not working
         },
-      },
-    }
+        legend: {
+          display: false, //working
+          position: 'top',
+        },
+        title: {
+          display: true, //working
+          text: "Most Watched Esport Games in the last 12 Months",
+        },
+
+      }
+
+    };
 
     return (
       <div>

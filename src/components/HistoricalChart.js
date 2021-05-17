@@ -1,7 +1,7 @@
 import * as React from "react";
 import "../globalStyle/globalStyle.css";
-import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
+//import DownsamplePlugin from 'chartjs-plugin-downsample';
 
 export default class HistoricalChart extends React.Component {
   constructor(props) {
@@ -58,18 +58,14 @@ export default class HistoricalChart extends React.Component {
           data: this.state.data_Earnings,
           backgroundColor: "rgba(168,50,50,1)",
           borderColor: "rgba(0,0,0,1)",
-          borderWidth: 1,
+          borderWidth: 0.8,
         },
       ],
     }
 
     let options = {
+      responsive: true,
       maintainAspectRatio: false,
-      title: {
-        display: true,
-        text: "Average Rainfall per month",
-        fontSize: 20,
-      },
       layout: {
         padding: {
           left: 0,
@@ -77,22 +73,21 @@ export default class HistoricalChart extends React.Component {
         },
       },
       plugins: {
-        /*decimation: {                
-        enable: true,
-        algorithm: 'min-max'
-      },*/
-      },
-      legend: {
-        display: true,
-        position: "top",
-        lables: {
-          font: {
-            style: "italic",
-            size: 24,
-          },
+        labels: {
+          fontColor: "#a83232", //not working
         },
-      },
-    }
+        legend: {
+          display: false, //working
+          position: 'top',
+        },
+        title: {
+          display: true, //working
+          text: "Esport Earnings",
+        },
+
+      }
+
+    };
 
     return (
       <div>

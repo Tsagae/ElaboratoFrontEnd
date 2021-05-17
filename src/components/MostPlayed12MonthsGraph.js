@@ -1,5 +1,6 @@
 import * as React from "react";
 import "../globalStyle/globalStyle.css";
+import { Bar } from "react-chartjs-2";
 import { Line } from "react-chartjs-2";
 
 export default class Chart extends React.Component {
@@ -12,7 +13,7 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://mzaghenoapi.sytes.net/queryDB/getMostWatched12Months")
+    fetch("https://mzaghenoapi.sytes.net/queryDB/getMostPlayed12Months")
       .then((res) => res.text())
       .then((data) => this.processChartData(JSON.parse(data)));
   }
@@ -23,41 +24,38 @@ export default class Chart extends React.Component {
       month: "long",
     };
 
-    //TwitchGlobal_HoursWatched Data
-    let labels_TwitchGlobal_HoursWatched = [];
-    let data_TwitchGlobal_HoursWatched = [];
+    //TwitchGlobal_Players Data
+    let labels_GameName = [];
+    let data_Players = [];
 
     data.forEach((element) => {
-      let date = new Date(element.Date);
-      labels_TwitchGlobal_HoursWatched.push(
-        Intl.DateTimeFormat("en-US", dateOptions).format(date)
-      );
-      data_TwitchGlobal_HoursWatched.push(element.Hours_watched);
+        labels_GameName.push(element.GameName);
+      data_Players.push(element.Players);
     });
 
     this.setState({
-      labels: labels_TwitchGlobal_HoursWatched,
-      data: data_TwitchGlobal_HoursWatched,
+      labels: labels_GameName,
+      data: data_Players,
     });
   }
 
   render() {
 
-    let data = {
-
+    let data={
       labels: this.state.labels,
       datasets: [
         {
-          label: "Hours Watched",
+          label: "Players",
           data: this.state.data,
           backgroundColor: "rgba(56,161,69,1)",
           borderColor: "rgba(0,0,0,1)",
-          borderWidth: 0.8,
+          borderWidth: 0,
         },
       ],
-    };
+    }
 
     let options = {
+      indexAxis: 'y',
       responsive: true,
       maintainAspectRatio: false,
       layout: {
@@ -76,7 +74,7 @@ export default class Chart extends React.Component {
         },
         title: {
           display: true, //working
-          text: "Most Viewed Esport Games on Twitch",
+          text: "Esport Games with the most Players in the last 12 Months",
         },
 
       }
@@ -85,11 +83,7 @@ export default class Chart extends React.Component {
 
     return (
       <div>
-        <Line
-          data={data}
-          options={options}
-          className={this.props.className}
-        />
+        <Bar data={data} options={options} className={this.props.className} />
       </div>
     );
   }
