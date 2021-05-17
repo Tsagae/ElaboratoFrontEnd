@@ -17,7 +17,6 @@ export default function Searchbar({ children }) {
           layout="fixed"
           width={"30px"}
           height={"30px"}
-          className={styles.img}
         />
       </button>
     </div>
