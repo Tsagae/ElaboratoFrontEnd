@@ -15,7 +15,7 @@ export default function Navbar({ children }) {
           <div>
             <Link to="/oldindex"> oldindex </Link>
           </div>
-          <div>Funct2</div>
+          <div><Link to="/games"> Games </Link></div>
         </li>
       </ul>
       </header>
