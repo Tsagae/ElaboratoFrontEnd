@@ -1,6 +1,7 @@
 import * as React from "react";
 import "../globalStyle/globalStyle.css";
 import TwitchThumbnail from "./TwitchThumbnail";
+import * as styles from "./GamesIndex.module.css";
 
 export default class GamesIndex extends React.Component {
     constructor(props) {
@@ -14,7 +15,7 @@ export default class GamesIndex extends React.Component {
     componentDidMount() {
         console.log("offset: " + this.props.offset);
         console.log("limit: " + this.props.limit);
-        fetch("https://mzaghenoapi.sytes.net/queryDB/getAllEsportGames?offset=" + this.props.offset + "&limit=" + this.props.limit)
+        fetch("https://mzaghenoapi.sytes.net/queryDB/getMostPlayedEsportGamesOffset?offset=" + this.props.offset + "&limit=" + this.props.limit)
             .then((res) => res.text())
             .then((data) => {
                 this.setState({ loaded: true, data: JSON.parse(data)[0] });
@@ -33,11 +34,16 @@ export default class GamesIndex extends React.Component {
         } else {
             //ricordati on React.Fragmet key={item.GameID}
             return (
-                <div>
+                <div className={styles.mainContent}>
                     <ul>
                         {this.state.data.map(item => (
-                            <React.Fragment> 
-                                <li><TwitchThumbnail game={item.GameName} /></li>
+                            <React.Fragment>
+                                <li>
+                                    <div className={styles.thumbNailTitleContainer}>
+                                        <TwitchThumbnail game={item.GameName} width={198} height={264} />
+                                        <h5 className={styles.gameName}>{item.GameName}</h5>
+                                    </div>
+                                </li>
                             </React.Fragment>
                         ))}
                     </ul>
