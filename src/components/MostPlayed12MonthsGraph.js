@@ -47,7 +47,7 @@ export default class Chart extends React.Component {
         {
           label: "Players",
           data: this.state.data,
-          backgroundColor: "rgba(56,161,69,1)",
+          backgroundColor: "rgba(168,50,50,1)",
           borderColor: "rgba(0,0,0,1)",
           borderWidth: 0,
         },
