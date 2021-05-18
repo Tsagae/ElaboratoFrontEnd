@@ -13,14 +13,15 @@ export default class TwitchThumbinail extends React.Component {
   }
 
   componentDidMount() {
+    /*
     let splittedString = this.props.game.split(' ');
     let finalString = "";
     for (let i = 0; i < splittedString.length; i++) {
       finalString = finalString.concat(splittedString[i]);
       finalString = finalString.concat("%20");
     }
-    finalString = finalString.slice(0, -3);
-    let imgSrc = "https://static-cdn.jtvnw.net/ttv-boxart/" + finalString + "-285x380.jpg";
+    finalString = finalString.slice(0, -3);*/
+    let imgSrc = "https://static-cdn.jtvnw.net/ttv-boxart/" + encodeURIComponent(this.props.game) + "-285x380.jpg";
     console.log(imgSrc);
     this.setState({
       loaded: true,
