@@ -13,10 +13,7 @@ const Games = () => {
                     <h1>Content</h1>
                     <Searchbar />
                     <div>
-                        <TwitchThumbnail game="Command & Conquer 3" />
-                    </div>
-                    <div>
-                        <GamesIndex offset={0} limit={100} />
+                        <GamesIndex offset={0} limit={100}/>
                     </div>
                 </div>
             </Layout>

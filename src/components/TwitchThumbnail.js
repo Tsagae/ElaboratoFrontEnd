@@ -40,8 +40,8 @@ export default class TwitchThumbinail extends React.Component {
               "https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png"
             }
             alt={"placeholder"}
-            width={71}
-            height={95}
+            width={this.props.width}
+            height={this.props.height}
           />
         </div>
       );
@@ -51,8 +51,8 @@ export default class TwitchThumbinail extends React.Component {
           <LazyLoadImage
             src={this.state.game}
             alt={this.props.game}
-            width={71}
-            height={95}
+            width={this.props.width}
+            height={this.props.height}
           />
         </div>
       );
