@@ -10,7 +10,7 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameID: 0,
+            gameID: 86, //CSGO as default
             loaded: false,
             EsportGames_Data: [],
             HistoricalEsportData_Data: [],
@@ -22,7 +22,12 @@ export default class Game extends React.Component {
         let search = window.location.search;
         let params = new URLSearchParams(search);
         let gameID = params.get('gameID');
-        console.log(gameID);
+        if(gameID == null) {
+           this.setState({
+              loaded: "error",
+           });
+            return; //prevent from asking the api a game that doesen't exist
+        }
         fetch("https://mzaghenoapi.sytes.net/queryDB/getGameInfo?gameID=" + gameID)
             .then((res) => res.text())
             .then((data) => {
@@ -48,7 +53,18 @@ export default class Game extends React.Component {
                     </Layout>
                 </div>
             );
-        } else {
+        } else if(this.state.loaded == "error"){
+            return (
+                <div>
+                    <Layout>
+                        <div className={styles.mainContent}>
+                            <h2> Invalid Game :( </h2>
+                        </div>
+                    </Layout>
+                </div>
+            );
+        } 
+        else {
             console.log(this.state.TwitchEsportGames_Data);
             return (
                 <div>
