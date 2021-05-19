@@ -71,7 +71,7 @@ export default class Game extends React.Component {
                     <Layout>
                         <div className={styles.topInfoCard}>
                             <div className={styles.infoBox}>
-                                <TwitchThumbnail game={this.state.EsportGames_Data.GameName} width={198} height={264} />
+                                <TwitchThumbnail game={this.state.EsportGames_Data.GameName} width={285} height={380} />
                                 <div className={styles.generalGameInfo}>
                                     <p>{this.state.EsportGames_Data.GameName}</p>
                                     <p>Release date: {this.state.EsportGames_Data.ReleaseDate}</p>
