@@ -1,11 +1,40 @@
-.thumbNailTitleContainer{
-   
+.thumbNailTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 45px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 198px;
+  height: 264px;
 }
 
-.mainContent{
+.gameList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.gameListItem {
+  position: relative;
+  display: inline;
+  padding: 16px;
+}
+
+.mainContent {
 
 }
 
-.gameName{
-    
+.gameName {
+  margin-top: 0;
+  margin-bottom: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }

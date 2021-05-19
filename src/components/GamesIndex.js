@@ -36,7 +36,7 @@ export default class GamesIndex extends React.Component {
             //ricordati on React.Fragmet key={item.GameID}
             return (
                 <div className={styles.mainContent}>
-                    <ul>
+                    <ul className={styles.gameList}>
                         {this.state.data.map(item => (
                             <React.Fragment>
                                 <li>
