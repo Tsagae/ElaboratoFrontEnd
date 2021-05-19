@@ -51,8 +51,8 @@ export default class Chart extends React.Component {
           label: "Hours Watched",
           data: this.state.data,
           backgroundColor: "rgba(56,161,69,1)",
-          borderColor: "rgba(0,0,0,1)",
-          borderWidth: 0.8,
+          borderColor: "rgba(56,161,69,1)",
+          borderWidth: 1,
         },
       ],
     };
