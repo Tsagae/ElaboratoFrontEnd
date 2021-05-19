@@ -7,8 +7,8 @@ export default function Navbar({ children }) {
   return (
     <div className={styles.container}>
       <header>
-      <ul>
-        <li>
+      <ul className={styles.linkList}>
+        <li className={styles.linkListItem}>
           <div>
             <Link to="/"> Home </Link>
           </div>
