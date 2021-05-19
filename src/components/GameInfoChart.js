@@ -6,9 +6,9 @@ export default class GameInfoChart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            labels_twitchData_Hours_watched: [],
+            labels_twitchData_Avg_viewers: [],
             //labels_historicalEsportData_Players: [],
-            twitchData_Hours_watched: [],
+            twitchData_Avg_viewers: [],
             //twitchData_Avg_viewers: [],
             historicalEsportData_Players: [],
             historicalEsportData_Earnings: [],
@@ -26,18 +26,18 @@ export default class GameInfoChart extends React.Component {
             month: "long",
         };
 
-        //twitchData_Hours_watched
-        let lables_twitchData_Hours_watched = [];
-        let twitchData_Hours_watched = [];
+        //twitchData_Avg_viewers
+        let lables_twitchData_Avg_viewers = [];
+        let twitchData_Avg_viewers = [];
         //let twitchData_Avg_viewers = [];
 
 
         this.props.twitchData.forEach((element) => {
             let date = new Date(element.Date);
-            lables_twitchData_Hours_watched.push(
+            lables_twitchData_Avg_viewers.push(
                 Intl.DateTimeFormat("en-US", dateOptions).format(date)
             );
-            twitchData_Hours_watched.push(element.Hours_watched);
+            twitchData_Avg_viewers.push(element.Avg_viewers);
             //twitchData_Avg_viewers.push(element.Avg_viewers)
         });
 
@@ -59,9 +59,9 @@ export default class GameInfoChart extends React.Component {
 
 
         this.setState({
-            labels_twitchData_Hours_watched: lables_twitchData_Hours_watched,
+            labels_twitchData_Avg_viewers: lables_twitchData_Avg_viewers,
 
-            twitchData_Hours_watched: twitchData_Hours_watched,
+            twitchData_Avg_viewers: twitchData_Avg_viewers,
             //twitchData_Avg_viewers: twitchData_Avg_viewers,
             historicalEsportData_Players: historicalEsportData_Players,
             historicalEsportData_Earnings: historicalEsportData_Earnings,
@@ -73,11 +73,11 @@ export default class GameInfoChart extends React.Component {
 
         let data = {
 
-            labels: this.state.labels_twitchData_Hours_watched,
+            labels: this.state.labels_twitchData_Avg_viewers,
             datasets: [
                 {
-                    label: "Hours Watched",
-                    data: this.state.twitchData_Hours_watched,
+                    label: "Average Viewers",
+                    data: this.state.twitchData_Avg_viewers,
                     backgroundColor: "#9147ff",
                     borderColor: "#9147ff",
                     borderWidth: 0.8,
