@@ -12,8 +12,8 @@ const Games = () => {
                 <div>
                     <h1>Content</h1>
                     <Searchbar />
-                    <div>
-                        <GamesIndex offset={0} limit={100}/>
+                    <div className={styles.gamesContainer}>
+                        <GamesIndex offset={0} limit={200}/>
                     </div>
                 </div>
             </Layout>
