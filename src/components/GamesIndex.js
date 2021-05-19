@@ -14,13 +14,13 @@ export default class GamesIndex extends React.Component {
     }
 
     componentDidMount() {
-        console.log("offset: " + this.props.offset);
-        console.log("limit: " + this.props.limit);
+        //console.log("offset: " + this.props.offset);
+        //console.log("limit: " + this.props.limit);
         fetch("https://mzaghenoapi.sytes.net/queryDB/getMostViewedEsportGamesOffset?offset=" + this.props.offset + "&limit=" + this.props.limit)
             .then((res) => res.text())
             .then((data) => {
                 this.setState({ loaded: true, data: JSON.parse(data)[0] });
-                console.log(JSON.parse(data)[0]);
+                //console.log(JSON.parse(data)[0]);
             });
     }
 
