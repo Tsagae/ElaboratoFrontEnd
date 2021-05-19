@@ -2,6 +2,7 @@ import * as React from "react";
 import "../globalStyle/globalStyle.css";
 import TwitchThumbnail from "./TwitchThumbnail";
 import * as styles from "./GamesIndex.module.css";
+import { Link } from "gatsby";
 
 export default class GamesIndex extends React.Component {
     constructor(props) {
@@ -39,10 +40,12 @@ export default class GamesIndex extends React.Component {
                         {this.state.data.map(item => (
                             <React.Fragment>
                                 <li>
-                                    <div className={styles.thumbNailTitleContainer}>
-                                        <TwitchThumbnail game={item.GameName} width={198} height={264} />
-                                        <h5 className={styles.gameName}>{item.GameName}</h5>
-                                    </div>
+                                    <Link to={`/game?gameID=${encodeURIComponent(item.GameID)}`}>
+                                        <div className={styles.thumbNailTitleContainer}>
+                                            <TwitchThumbnail game={item.GameName} width={198} height={264} />
+                                            <h5 className={styles.gameName}>{item.GameName}</h5>
+                                        </div>
+                                    </Link>
                                 </li>
                             </React.Fragment>
                         ))}
