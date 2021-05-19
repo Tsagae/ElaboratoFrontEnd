@@ -1,7 +1,34 @@
-.mainContent{
-    
+.topInfoCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
-.generalGameInfo{
-    
+.infoBox {
+  display: flex;
+  flex-direction: row;
+}
+
+.generalGameInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.generalGameInfo p {
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.gameInfoChartContainer {
+  flex-grow: 2;
+  width: 600px;
+}
+
+.gameInfoChart {
+  height: 500px;
 }
