@@ -1,0 +1,27 @@
+.container{
+    margin: 16px 0px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+.container p{
+    margin: 0px;
+    font-size: x-large;
+}
+
+.container hr{
+    border-color: #9147ff;
+    box-shadow: 0 -8px 20px 1px #9147ff;
+    margin: 0px;
+    width: 240px;
+
+}
+
+.container h5{
+    color: #9147ff;
+    margin: 0px;
+    padding: 5px 0px;
+}
