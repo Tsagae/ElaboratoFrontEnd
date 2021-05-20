@@ -56,8 +56,9 @@ export default class HistoricalChart extends React.Component {
         {
           label: "Earnings",
           data: this.state.data_Earnings,
-          backgroundColor: "rgba(168,50,50,1)",
-          borderColor: "rgba(168,50,50,1)",
+          fill: false,
+          backgroundColor: "#fc3636",
+          borderColor: "#fc3636",
           borderWidth: 1,
         },
       ],

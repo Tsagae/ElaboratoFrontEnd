@@ -47,8 +47,8 @@ export default class MostViewed12MonthsGraph extends React.Component {
         {
           label: "Hours Watched",
           data: this.state.data,
-          backgroundColor: "rgba(56,161,69,1)",
-          borderColor: "rgba(0,0,0,1)",
+          backgroundColor: "#9147ff",
+          borderColor: "#9147ff",
           borderWidth: 0,
         },
       ],
