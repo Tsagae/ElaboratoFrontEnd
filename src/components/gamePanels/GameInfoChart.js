@@ -118,8 +118,8 @@ export default class GameInfoChart extends React.Component {
             historicalEsportData_Torunaments: historicalEsportData_Torunaments,
 
             //extra lables TODO remove for production
-            labels_historicalEsportData: labels_historicalEsportData,
-            labels_twitchData, labels_twitchData,
+            //labels_historicalEsportData: labels_historicalEsportData,
+            //labels_twitchData, labels_twitchData,
         });
     }
 
@@ -147,7 +147,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ffffff",
                     borderColor: "#ffffff",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-1',
+                    yAxisID: 'y-axis-2',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -158,7 +158,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ff0000",
                     borderColor: "#ff0000",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-2',
+                    yAxisID: 'y-axis-3',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -169,7 +169,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "rgba(56,161,69,1)",
                     borderColor: "rgba(56,161,69,1)",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-3',
+                    yAxisID: 'y-axis-4',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -180,7 +180,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ffe100",
                     borderColor: "#ffe100",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-4',
+                    yAxisID: 'y-axis-5',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -224,6 +224,15 @@ export default class GameInfoChart extends React.Component {
                         display: false,
                         position: 'right',
                         id: 'y-axis-4',
+                        gridLines: {
+                            drawOnArea: false,
+                        },
+                    },
+                    {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-axis-5',
                         gridLines: {
                             drawOnArea: false,
                         },
