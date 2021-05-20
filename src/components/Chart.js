@@ -12,7 +12,7 @@ export default class Chart extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://mzaghenoapi.sytes.net/queryDB/getHoursWatched12Months")
+    fetch("https://mzaghenoapi.sytes.net/queryDB/getHoursWatched")
       .then((res) => res.text())
       .then((data) => this.processChartData(JSON.parse(data)));
   }
@@ -50,8 +50,9 @@ export default class Chart extends React.Component {
         {
           label: "Hours Watched",
           data: this.state.data,
-          backgroundColor: "rgba(56,161,69,1)",
-          borderColor: "rgba(56,161,69,1)",
+          fill: false,
+          backgroundColor: "#9147ff",
+          borderColor: "#9147ff",
           borderWidth: 1,
         },
       ],
@@ -76,7 +77,7 @@ export default class Chart extends React.Component {
         },
         title: {
           display: true, //working
-          text: "Most Viewed Esport Games on Twitch",
+          text: "Hours Watched on Esport Games",
         },
 
       }
