@@ -1,21 +1,12 @@
-Link {
-  color: red;
+body {
+  background-color: #262729;
+  color: white;
+  margin: 0px;
+  font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 a {
-  color: #404244;
+  color: white;
 }
 
-body {
-  background-color: #ffffff;
-  color: #404244;
-  margin: 0px;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
 
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #404244a4;
-  opacity: 1; /* Firefox */
-}

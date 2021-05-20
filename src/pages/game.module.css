@@ -1,13 +1,21 @@
-.topInfoCard {
+.topInfoPanel {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-.infoBox {
+.detailInfoBox{
+  margin: 0px 80px;
+  flex-grow: 2;
+}
+
+.infoPanels{
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .generalGameInfo {
@@ -22,11 +30,11 @@
 .generalGameInfo p {
   margin-top: 5px;
   margin-bottom: 0px;
+  font-size: medium;
 }
 
 .gameInfoChartContainer {
-  flex-grow: 2;
-  width: 600px;
+  flex-grow: 1;
 }
 
 .gameInfoChart {
