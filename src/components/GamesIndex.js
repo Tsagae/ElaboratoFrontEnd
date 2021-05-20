@@ -10,6 +10,7 @@ export default class GamesIndex extends React.Component {
         this.state = {
             loaded: false,
             data: [],
+            searchStr: this.props.searchStr,
         };
     }
 
@@ -19,11 +20,20 @@ export default class GamesIndex extends React.Component {
         fetch("https://mzaghenoapi.sytes.net/queryDB/getMostViewedEsportGamesOffset?offset=" + this.props.offset + "&limit=" + this.props.limit)
             .then((res) => res.text())
             .then((data) => {
-                this.setState({ loaded: true, data: JSON.parse(data)[0] });
+                this.setState({ loaded: true, data: JSON.parse(data)[0], searchStr: this.state.searchStr, });
                 //console.log(JSON.parse(data)[0]);
             });
     }
 
+    componentDidUpdate() {
+        if (this.state.searchStr != this.props.searchStr) {
+            this.setState({
+                loaded: this.state.loaded,
+                data: this.state.data,
+                searchStr: this.props.searchStr,
+            });
+        }
+    }
 
     render() {
         if (!this.state.loaded) {
@@ -34,11 +44,19 @@ export default class GamesIndex extends React.Component {
             );
         } else {
             //ricordati on React.Fragmet key={item.GameID}
+            let filteredData = [];
+            this.state.data.forEach(element => {
+                if (!this.state.searchStr) {
+                    filteredData.push(element);
+                } else if (element.GameName.toLowerCase().includes(this.state.searchStr.toLowerCase())) {
+                    filteredData.push(element);
+                }
+            });
             return (
                 <div className={styles.mainContent}>
                     <ul className={styles.gameList}>
-                        {this.state.data.map(item => (
-                            <React.Fragment>
+                        {filteredData.map(item => (
+                            <React.Fragment key={item.GameID}>
                                 <li>
                                     <Link to={`/game?gameID=${encodeURIComponent(item.GameID)}`}>
                                         <div className={styles.thumbNailTitleContainer}>
