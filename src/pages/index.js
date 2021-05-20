@@ -13,26 +13,7 @@ const IndexPage = () => {
     <div>
       <Layout>
         <div>
-          <h1>Content</h1>
-          <Searchbar />
-          <div className={styles.indexLayout}>
-            <div className={styles.mainCharts} >
-              <div className={styles.chartWrapper}>
-                <Chart className={styles.chart1} />
-              </div>
-              <div className={styles.chartWrapper}>
-                <HistoricalChart className={styles.chart1} />
-              </div>
-            </div>
-            <div className={styles.mainCharts}>
-              <div className={styles.chartWrapper}>
-                <MostViewed12Months className={styles.chart2} />
-              </div>
-              <div className={styles.chartWrapper}>
-                <MostPlayed12Months className={styles.chart2} />
-              </div>
-            </div>
-          </div>
+          <h1>Index</h1>
         </div>
       </Layout>
     </div>
