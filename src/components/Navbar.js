@@ -13,7 +13,7 @@ export default function Navbar({ children }) {
             <Link to="/"> Home </Link>
           </div>
           <div>
-            <Link to="/oldindex"> oldindex </Link>
+            <Link to="/globalData"> Global Data </Link>
           </div>
           <div><Link to="/games"> Games </Link></div>
         </li>
