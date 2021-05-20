@@ -1,0 +1,43 @@
+.mainCharts {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .chartWrapper {
+    width: 50%;
+  }
+  
+  .indexLayout {
+    
+  }
+  
+  .chart1 {
+    height: 300px;
+  }
+  
+  .chart2 {
+    height: 400px;
+  }
+  
+  /*
+  @media screen and (max-width: 1000px) {
+      .mainCharts{
+          display: block;
+      }
+  
+      .chartWrapper{
+          width: 100%;
+      }
+  }
+  */
+  
+  @media screen and (orientation: portrait) {
+    .mainCharts {
+      display: block;
+    }
+  
+    .chartWrapper {
+      width: 100%;
+    }
+  }
+  
