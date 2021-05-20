@@ -1,6 +1,8 @@
 import * as React from "react";
 import "../../globalStyle/globalStyle.css";
 import { Line } from "react-chartjs-2";
+import { Chart } from "chart.js";
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 export default class GameInfoChart extends React.Component {
     constructor(props) {
@@ -18,8 +20,10 @@ export default class GameInfoChart extends React.Component {
         };
     }
 
+
     componentDidMount() {
         this.processChartData();
+        Chart.register(zoomPlugin);
     }
 
     processChartData() {
@@ -43,7 +47,7 @@ export default class GameInfoChart extends React.Component {
                 //Intl.DateTimeFormat("en-US", dateOptions).format(date)
                 date
             );
-            if(labels.indexOf(date) == -1){
+            if (labels.indexOf(date) == -1) {
                 //labels.push(Intl.DateTimeFormat("en-US", dateOptions).format(date));
                 labels.push(date);
             }
@@ -59,38 +63,38 @@ export default class GameInfoChart extends React.Component {
         let historicalEsportData_Torunaments = [];
 
         this.props.historicalEsportData.forEach((element) => {
-            
+
             let date = Date.parse(element.Date);
             labels_historicalEsportData.push(
                 //Intl.DateTimeFormat("en-US", dateOptions).format(date)
                 date
             );
 
-            if(labels.indexOf(date) == -1){
+            if (labels.indexOf(date) == -1) {
                 //labels.push(Intl.DateTimeFormat("en-US", dateOptions).format(date));
                 labels.push(date);
             }
-            
+
             historicalEsportData_Players.push(element.Players);
             historicalEsportData_Earnings.push(element.Earnings);
             historicalEsportData_Torunaments.push(element.Tournaments);
         });
-       
-        labels.sort(function(a,b){
+
+        labels.sort(function (a, b) {
             // Turn your strings into dates, and then subtract them
             // to get a value that is either negative, positive, or zero.
             return new Date(a) - new Date(b);
-          });
-          
+        });
 
-        for(let i = 0; i < labels.length; i++){
-            if(labels[i] < labels_historicalEsportData[i]){
+
+        for (let i = 0; i < labels.length; i++) {
+            if (labels[i] < labels_historicalEsportData[i]) {
                 labels_historicalEsportData.splice(i, 0, labels[i]);
                 historicalEsportData_Players.splice(i, 0, null);
                 historicalEsportData_Earnings.splice(i, 0, null);
                 historicalEsportData_Torunaments.splice(i, 0, null);
             }
-            if(labels[i] < labels_twitchData[i]){
+            if (labels[i] < labels_twitchData[i]) {
                 labels_twitchData.splice(i, 0, labels[i]);
                 twitchData_Avg_viewers.splice(i, 0, null);
                 twitchData_Peak_viewers.splice(i, 0, null);
@@ -104,7 +108,7 @@ export default class GameInfoChart extends React.Component {
             } 
         }*/
 
-        for(let i = 0; i < labels.length; i++){
+        for (let i = 0; i < labels.length; i++) {
             labels.splice(i, 1, Intl.DateTimeFormat("en-US", dateOptions).format(labels[i]));
         }
 
@@ -237,6 +241,47 @@ export default class GameInfoChart extends React.Component {
                 },
             },
             plugins: {
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x'
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        enabled: true,
+                        mode: 'x'
+                    },
+                    limits: {
+                        x: {
+                            minDelay: 0,
+                            maxDelay: 4000,
+                            minDuration: 1000,
+                            maxDuration: 20000
+                        }
+                    }
+                },
+                /*zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x',
+                        speed: 10,
+                        threshold: 10
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        mode: 'xy',
+                    }
+                },*/
                 labels: {
                     fontColor: "#a83232", //not working
                 },
@@ -259,6 +304,7 @@ export default class GameInfoChart extends React.Component {
                     data={data}
                     options={options}
                     className={this.props.className}
+                    plugins={[zoomPlugin]}
                 />
             </div>
         );
