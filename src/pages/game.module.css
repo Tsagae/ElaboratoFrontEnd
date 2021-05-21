@@ -1,3 +1,8 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .topInfoPanel {
   display: flex;
   flex-direction: row;
@@ -5,17 +10,22 @@
   flex-wrap: wrap;
 }
 
-.detailInfoBox{
-  margin: 0px 80px;
+.twitchThumbnail {
+  margin-left: 80px;
+  margin-bottom: 10px;
+}
+
+.detailInfoBox {
   flex-grow: 2;
 }
 
-.infoPanels{
+.infoPanels {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 0px 50px;
 }
 
 .generalGameInfo {
@@ -34,9 +44,48 @@
 }
 
 .gameInfoChartContainer {
+  position: relative;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gameInfoChartWrapper {
+  position: relative;
+  overflow: hidden;
 }
 
 .gameInfoChart {
-  height: 380px;
+  position: absolute;
+  left: -250px;
+}
+
+@media screen and (max-width: 1025px) {
+  .twitchThumbnail {
+    margin-left: 0px;
+    margin-bottom: 0px;
+    width: fit-content;
+  }
+
+  .topInfoPanel {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .detailInfoBox{
+    flex-grow: 2;
+    width: 100%;
+  }
+
+  .infoPanels{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0px 50px;
+  }
 }
