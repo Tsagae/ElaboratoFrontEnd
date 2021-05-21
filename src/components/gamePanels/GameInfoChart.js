@@ -283,18 +283,17 @@ export default class GameInfoChart extends React.Component {
             layout: {
                 padding: {
                     left: 0,
-                    right: 0,
+                    right: 100,
                 },
             },
             plugins: {
                 zoom: {
                     pan: {
                         enabled: true,
-                        mode: 'x'
-                        /*
-                        speed: 10,
-                        threshold: 10
-                        */
+                        mode: 'x',
+                        speed: 1, //most likely doesen't work
+                        threshold: 10 //most likely doesen't work
+                        
                     },
                     zoom: {
                         wheel: {
@@ -322,9 +321,10 @@ export default class GameInfoChart extends React.Component {
                 legend: {
                     display: true, //working
                     position: 'top',
+                    align: 'end'
                 },
                 title: {
-                    display: true, //working
+                    display: false, //working
                     text: "Data Over Time",
                 },
 
@@ -333,12 +333,12 @@ export default class GameInfoChart extends React.Component {
         };
 
         return (
-            <div>
+            <div style={{position: 'relative', height: '380px', width: '125%'}}>
                 <Line
                     data={data}
                     options={options}
-                    className={this.props.className}
                     plugins={[zoomPlugin]}
+                    className={this.props.className}
                 />
             </div>
         );
