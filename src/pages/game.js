@@ -15,6 +15,7 @@ export default class Game extends React.Component {
             EsportGames_Data: [],
             HistoricalEsportData_Data: [],
             TwitchEsportGames_Data: [],
+            TwitchDataSummary: [],
         };
     }
 
@@ -37,6 +38,7 @@ export default class Game extends React.Component {
                     EsportGames_Data: JSON.parse(data)[0][0],
                     HistoricalEsportData_Data: JSON.parse(data)[1],
                     TwitchEsportGames_Data: JSON.parse(data)[2],
+                    TwitchDataSummary: JSON.parse(data)[3],
                 });
                 console.log(this.state);
             });
@@ -79,7 +81,7 @@ export default class Game extends React.Component {
                                     <p>Genre: {this.state.EsportGames_Data.Genre}</p>
                                 </div>
                                 <div className={styles.infoPanels}>
-                                    <TwitchDetailPanel EsportGames_Data={this.state.EsportGames_Data} />
+                                    <TwitchDetailPanel TwitchDataSummary={this.state.TwitchDataSummary[0]} />
                                     <EsportDetailPanel EsportGames_Data={this.state.EsportGames_Data} />
                                 </div>
                             </div>
