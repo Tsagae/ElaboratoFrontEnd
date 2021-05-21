@@ -7,17 +7,23 @@ export default function Navbar({ children }) {
   return (
     <div className={styles.container}>
       <header>
-      <ul className={styles.linkList}>
-        <li className={styles.linkListItem}>
-          <div>
-            <Link to="/"> Home </Link>
-          </div>
-          <div>
-            <Link to="/globalData"> Global Data </Link>
-          </div>
-          <div><Link to="/games"> Games </Link></div>
-        </li>
-      </ul>
+        <ul className={styles.linkList}>
+          <li className={styles.linkListItem}>
+            <div>
+              <Link to="/">
+                <h4>Home</h4>
+              </Link>
+            </div>
+            <div>
+              <Link to="/globalData">
+                <h4>Global Data</h4>
+              </Link>
+            </div>
+            <div><Link to="/games">
+              <h4>Games</h4>
+            </Link></div>
+          </li>
+        </ul>
       </header>
     </div>
   );
