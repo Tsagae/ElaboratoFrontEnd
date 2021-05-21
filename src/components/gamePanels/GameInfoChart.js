@@ -13,6 +13,7 @@ export default class GameInfoChart extends React.Component {
             labels: [],
             twitchData_Avg_viewers: [],
             twitchData_Peak_viewers: [],
+            viewersToPlayersConversionRate: [],
             //twitchData_Avg_viewers: [],
             historicalEsportData_Players: [],
             historicalEsportData_Earnings: [],
@@ -108,8 +109,14 @@ export default class GameInfoChart extends React.Component {
             } 
         }*/
 
+        let viewersToPlayersConversionRate = [];
         for (let i = 0; i < labels.length; i++) {
             labels.splice(i, 1, Intl.DateTimeFormat("en-US", dateOptions).format(labels[i]));
+            if (historicalEsportData_Players[i] != null && twitchData_Avg_viewers[i] != null) {
+                viewersToPlayersConversionRate.push(historicalEsportData_Players[i] / twitchData_Avg_viewers[i]);
+            } else {
+                viewersToPlayersConversionRate.push(null);
+            }
         }
 
         this.setState({
@@ -120,7 +127,7 @@ export default class GameInfoChart extends React.Component {
             historicalEsportData_Players: historicalEsportData_Players,
             historicalEsportData_Earnings: historicalEsportData_Earnings,
             historicalEsportData_Torunaments: historicalEsportData_Torunaments,
-
+            viewersToPlayersConversionRate: viewersToPlayersConversionRate
             //extra lables TODO remove for production
             //labels_historicalEsportData: labels_historicalEsportData,
             //labels_twitchData, labels_twitchData,
@@ -156,13 +163,24 @@ export default class GameInfoChart extends React.Component {
                     tension: 0.3,
                 },
                 {
+                    label: "Viewers to Players Conversion Rate",
+                    data: this.state.viewersToPlayersConversionRate,
+                    fill: false,
+                    backgroundColor: "#00d0ff",
+                    borderColor: "#00d0ff",
+                    borderWidth: 0.8,
+                    yAxisID: 'y-axis-3',
+                    spanGaps: true,
+                    tension: 0.3,
+                },
+                {
                     label: "Players",
                     data: this.state.historicalEsportData_Players,
                     fill: false,
                     backgroundColor: "#ff0000",
                     borderColor: "#ff0000",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-3',
+                    yAxisID: 'y-axis-4',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -173,7 +191,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "rgba(56,161,69,1)",
                     borderColor: "rgba(56,161,69,1)",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-4',
+                    yAxisID: 'y-axis-5',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -184,7 +202,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ffe100",
                     borderColor: "#ffe100",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-5',
+                    yAxisID: 'y-axis-6',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -197,51 +215,70 @@ export default class GameInfoChart extends React.Component {
             scales: {
                 yAxes: [
                     {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-1',
+                        ticks: { display: false },
                         gridLines: {
-                            drawOnArea: false,
-                        },
+                            display: false,
+                            drawBorder: false
+                        }
                     },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-2',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-3',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-4',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-5',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
+                    /* {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-1',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-2',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-3',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-4',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-5',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-5',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },*/
                 ],
+                xAxes: [{
+                    display: false,
+                }]
             },
             layout: {
                 padding: {
@@ -254,6 +291,10 @@ export default class GameInfoChart extends React.Component {
                     pan: {
                         enabled: true,
                         mode: 'x'
+                        /*
+                        speed: 10,
+                        threshold: 10
+                        */
                     },
                     zoom: {
                         wheel: {
@@ -274,23 +315,7 @@ export default class GameInfoChart extends React.Component {
                         }
                     }
                 },
-                /*zoom: {
-                    pan: {
-                        enabled: true,
-                        mode: 'x',
-                        speed: 10,
-                        threshold: 10
-                    },
-                    zoom: {
-                        wheel: {
-                            enabled: true,
-                        },
-                        pinch: {
-                            enabled: true
-                        },
-                        mode: 'xy',
-                    }
-                },*/
+
                 labels: {
                     fontColor: "#a83232", //not working
                 },
