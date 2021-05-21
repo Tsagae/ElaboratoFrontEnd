@@ -90,7 +90,7 @@ export default class Game extends React.Component {
                             </div>
                             <div className={styles.gameInfoChartContainer}>
                                 <div className={styles.gameInfoChartWrapper}>
-                                    <GameInfoChart className={styles.gameInfoChart} twitchData={this.state.TwitchEsportGames_Data} historicalEsportData={this.state.HistoricalEsportData_Data} />
+                                    <GameInfoChart innertChartWrapper={styles.innertChartWrapper} className={styles.gameInfoChart} twitchData={this.state.TwitchEsportGames_Data} historicalEsportData={this.state.HistoricalEsportData_Data} />
                                 </div>
                             </div>
                             <div>

@@ -221,7 +221,7 @@ export default class GameInfoChart extends React.Component {
                             drawBorder: false
                         }
                     },
-                    /* {
+                     {
                          type: 'linear',
                          display: false,
                          position: 'right',
@@ -274,7 +274,7 @@ export default class GameInfoChart extends React.Component {
                          gridLines: {
                              drawOnArea: false,
                          },
-                     },*/
+                     },
                 ],
                 xAxes: [{
                     display: false,
@@ -333,7 +333,7 @@ export default class GameInfoChart extends React.Component {
         };
 
         return (
-            <div style={{position: 'relative', height: '380px', width: '125%'}}>
+            <div className={this.props.innertChartWrapper}>
                 <Line
                     data={data}
                     options={options}

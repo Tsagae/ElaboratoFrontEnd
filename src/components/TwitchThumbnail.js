@@ -47,7 +47,7 @@ export default class TwitchThumbinail extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div style={{ width: 'fit-content', height: 'fit-content' }}>
           <LazyLoadImage
             src={this.state.game}
             alt={this.props.game}

@@ -7,6 +7,11 @@ body {
 
 a {
   color: white;
+  text-decoration: none;
+}
+
+h4{
+  margin: 0px;
 }
 
 

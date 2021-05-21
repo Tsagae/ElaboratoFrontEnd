@@ -22,19 +22,24 @@
 .infoPanels {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 0px 50px;
+  justify-content: center;
+  padding: 0px 0px;
 }
 
 .generalGameInfo {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
   justify-content: center;
   align-items: center;
+}
+
+.generalGameInfo h2 {
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 .generalGameInfo p {
@@ -56,9 +61,15 @@
   overflow: hidden;
 }
 
+.innertChartWrapper {
+  position: relative;
+  height: 380px;
+  width: 125%;
+}
+
 .gameInfoChart {
   position: absolute;
-  left: -250px;
+  left: -260px;
 }
 
 @media screen and (max-width: 1025px) {
@@ -76,16 +87,21 @@
     align-items: center;
   }
 
-  .detailInfoBox{
+  .detailInfoBox {
     flex-grow: 2;
     width: 100%;
   }
+}
 
-  .infoPanels{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 0px 50px;
+@media screen and (min-width: 1415px) {
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 115%;
+  }
+
+  .gameInfoChart {
+    position: absolute;
+    left: -250px;
   }
 }
