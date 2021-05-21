@@ -71,23 +71,31 @@ export default class Game extends React.Component {
             return (
                 <div>
                     <Layout>
-                        <div className={styles.topInfoPanel}>
-
-                            <TwitchThumbnail game={this.state.EsportGames_Data.GameName} width={285} height={380} />
-                            <div className={styles.detailInfoBox}>
-                                <div className={styles.generalGameInfo}>
-                                    <h2>{this.state.EsportGames_Data.GameName}</h2>
-                                    <p>Release date: {this.state.EsportGames_Data.ReleaseDate}</p>
-                                    <p>Genre: {this.state.EsportGames_Data.Genre}</p>
+                        <div className={styles.mainContainer}>
+                            <div className={styles.topInfoPanel}>
+                                <div className={styles.twitchThumbnail}>
+                                    <TwitchThumbnail game={this.state.EsportGames_Data.GameName} width={285} height={380} />
                                 </div>
-                                <div className={styles.infoPanels}>
-                                    <TwitchDetailPanel TwitchDataSummary={this.state.TwitchDataSummary[0]} />
-                                    <EsportDetailPanel EsportGames_Data={this.state.EsportGames_Data} />
+                                <div className={styles.detailInfoBox}>
+                                    <div className={styles.generalGameInfo}>
+                                        <h2>{this.state.EsportGames_Data.GameName}</h2>
+                                        <p>Release date: {this.state.EsportGames_Data.ReleaseDate}</p>
+                                        <p>Genre: {this.state.EsportGames_Data.Genre}</p>
+                                    </div>
+                                    <div className={styles.infoPanels}>
+                                        <TwitchDetailPanel TwitchDataSummary={this.state.TwitchDataSummary[0]} />
+                                        <EsportDetailPanel EsportGames_Data={this.state.EsportGames_Data} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className={styles.gameInfoChartContainer}>
-                            <GameInfoChart className={styles.gameInfoChart} twitchData={this.state.TwitchEsportGames_Data} historicalEsportData={this.state.HistoricalEsportData_Data} />
+                            <div className={styles.gameInfoChartContainer}>
+                                <div className={styles.gameInfoChartWrapper}>
+                                    <GameInfoChart className={styles.gameInfoChart} twitchData={this.state.TwitchEsportGames_Data} historicalEsportData={this.state.HistoricalEsportData_Data} />
+                                </div>
+                            </div>
+                            <div>
+                                TODO Tournament Data
+                            </div>
                         </div>
                     </Layout>
                 </div>
