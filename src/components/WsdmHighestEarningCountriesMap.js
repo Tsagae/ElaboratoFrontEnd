@@ -22,6 +22,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
     }
 
     componentDidMount() {
+
         this.tip = tooltip({
             className: "wsdm-tooltip",
             styles: {
@@ -31,7 +32,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
                 "padding": "10px",
                 "border-radius": "10px",
                 "transition": "0.5s",
-                "pointer-events":"none"
+                "pointer-events": "none"
             },
         });
         this.tip.create();
@@ -41,14 +42,16 @@ class WsdmHighestEarningCountriesMap extends React.Component {
         fetch("https://mzaghenoapi.sytes.net/queryDB/getHighestEarningCountries")
             .then((res) => res.text())
             .then((data) => JSON.parse(data)[0]).then(players => {
-                console.log(players)
-                this.setState({
-                    loaded: true,
-                    players: players,
-                    geoUrl: geoUrl,
-                    colorScale: null,
-                });
+                setTimeout(function() {
+                    this.setState({
+                        loaded: true,
+                        players: players,
+                        geoUrl: geoUrl,
+                        colorScale: null,
+                    });
+                }.bind(this), 1200);
             });
+
     }
     processChartData(data) {
 
@@ -103,42 +106,42 @@ class WsdmHighestEarningCountriesMap extends React.Component {
                 ]);
 
             return (
-                    <ComposableMap>
-                        <ZoomableGroup zoom={1}>
-                            <Geographies geography={this.state.geoUrl} disableOptimization>
-                                {({ geographies }) =>
-                                    geographies.map(geo => {
-                                        //console.log(geo);  
-                                        const cur = this.state.players.find(s => s.CountryCode === geo.properties.ISO_A2.toLowerCase());
-                                        let TotUSDPrize = Object.assign({}, cur).TotalUSDPrize;
-                                        return (
-                                            <Geography
-                                                key={geo.rsmKey}
-                                                geography={geo}
-                                                fill={cur ? colorScale(cur.TotalUSDPrize) : "#656565"}
-                                                onMouseEnter={(evt) => {
-                                                    const { NAME, POP_EST } = geo.properties;
-                                                    let outString = `${NAME} - ${(typeof TotUSDPrize == 'undefined') ? "No data" : TotUSDPrize}`;
-                                                    this.tip.show("<div class=\"wsdm-tooltip\" style=\"background-color:rgb(38, 39, 41)\">" + outString + "</div>");
-                                                    this.tip.position({ pageX: evt.pageX, pageY: evt.pageY });
-                                                }}
-                                                onMouseLeave={() => {
-                                                    this.tip.hide();
-                                                }}
-                                                style={{
-                                                    width: this.props.width, 
-                                                    height: this.props.height,
-                                                    default: { outline: "none" },
-                                                    hover: { fill: "#DDD", outline: "none" },
-                                                    pressed: { outline: "none" },
-                                                }}
-                                            />
-                                        );
-                                    })
-                                }
-                            </Geographies>
-                        </ZoomableGroup>
-                    </ComposableMap>
+                <ComposableMap>
+                    <ZoomableGroup zoom={1}>
+                        <Geographies geography={this.state.geoUrl}>
+                            {({ geographies }) =>
+                                geographies.map(geo => {
+                                    //console.log(geo);  
+                                    const cur = this.state.players.find(s => s.CountryCode === geo.properties.ISO_A2.toLowerCase());
+                                    let TotUSDPrize = Object.assign({}, cur).TotalUSDPrize;
+                                    return (
+                                        <Geography
+                                            key={geo.rsmKey}
+                                            geography={geo}
+                                            fill={cur ? colorScale(cur.TotalUSDPrize) : "#656565"}
+                                            onMouseEnter={(evt) => {
+                                                const { NAME, POP_EST } = geo.properties;
+                                                let outString = `${NAME} - ${(typeof TotUSDPrize == 'undefined') ? "No data" : TotUSDPrize}`;
+                                                this.tip.show("<div class=\"wsdm-tooltip\" style=\"background-color:rgb(38, 39, 41)\">" + outString + "</div>");
+                                                this.tip.position({ pageX: evt.pageX, pageY: evt.pageY });
+                                            }}
+                                            onMouseLeave={() => {
+                                                this.tip.hide();
+                                            }}
+                                            style={{
+                                                width: this.props.width,
+                                                height: this.props.height,
+                                                default: { outline: "none" },
+                                                hover: { fill: "#DDD", outline: "none" },
+                                                pressed: { outline: "none" },
+                                            }}
+                                        />
+                                    );
+                                })
+                            }
+                        </Geographies>
+                    </ZoomableGroup>
+                </ComposableMap>
             );
         }
     }
