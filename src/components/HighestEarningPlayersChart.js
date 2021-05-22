@@ -3,7 +3,7 @@ import "../globalStyle/globalStyle.css";
 import { Bar } from "react-chartjs-2";
 //import DownsamplePlugin from 'chartjs-plugin-downsample';
 
-export default class getHighestEarningPlayersOffset extends React.Component {
+export default class HighestEarningPlayersChart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
