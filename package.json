@@ -19,6 +19,7 @@
     "chart.js": "^3.2.1",
     "chartjs-plugin-downsample": "^1.1.0",
     "chartjs-plugin-zoom": "^1.0.0-rc",
+    "d3-scale": "^3.1.0",
     "gatsby": "^3.4.2",
     "gatsby-cli": "^3.5.0",
     "gatsby-plugin-image": "^1.4.1",
@@ -32,6 +33,7 @@
     "react-dom": "^17.0.1",
     "react-lazy-load-image-component": "^1.5.1",
     "react-simple-maps": "^2.3.0",
+    "react-tooltip": "^4.2.19",
     "styled-components": "^5.3.0"
   }
 }
