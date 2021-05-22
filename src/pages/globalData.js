@@ -11,6 +11,7 @@ import * as styles from "./globalData.module.css";
 import HighestEarningPlayersMap from "../components/HighestEarningPlayersMap";
 import ReactDOM from "react-dom";
 import ReactTooltip from "react-tooltip";
+import MapWithTooltip from "../components/MapWithTooltip";
 
 
 //could be remade by movinig the api request here by making GlobalData a class and then passing data as props to the charts
@@ -18,16 +19,9 @@ export default class GlobalData extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      tooltipContent: "",
     };
   }
 
-
-  setTooltipContent(tooltipContent) {
-    this.setState({
-      tooltipContent: tooltipContent,
-    });
-  }
 
   render() {
     return (
@@ -57,8 +51,7 @@ export default class GlobalData extends React.Component{
                   <HighestEarningPlayers className={styles.chart2} />
                 </div>
                 <div className={styles.chartWrapper}>
-                  <HighestEarningPlayersMap setTooltipContent={this.setTooltipContent} />
-                  <ReactTooltip>{this.state.tooltipContent}</ReactTooltip>
+                  <MapWithTooltip></MapWithTooltip>
                 </div>
               </div>
             </div>
