@@ -6,8 +6,8 @@ import {
     Geographies,
     Geography
 } from "react-simple-maps";
-
 import { scaleQuantile } from "d3-scale";
+import ReactTooltip from "react-tooltip";
 
 class HighestEarningPlayersMap extends React.Component {
     constructor(props) {
@@ -96,31 +96,33 @@ class HighestEarningPlayersMap extends React.Component {
                     "#782618"
                 ]);
             return (
-                <ComposableMap>
-                    <Geographies geography={this.state.geoUrl}>
-                        {({ geographies }) =>
-                            geographies.map(geo => {
-                                //console.log(geo);  
-                                const cur = this.state.players.find(s => s.CountryCode === geo.properties.ISO_A2.toLowerCase());
-                                return (
-                                    <Geography
-                                        key={geo.rsmKey}
-                                        geography={geo}
-                                        fill={cur ? colorScale(cur.TotalUSDPrize) : "#EEE"}
-                                        onMouseEnter={() => {
-                                            const { NAME, POP_EST } = geo.properties;
-                                            let outString = `${NAME} — ${this.rounded(POP_EST)}`;
-                                            this.props.setTooltipContent("blabla");
-                                        }}
-                                        onMouseLeave={() => {
-                                            this.props.setTooltipContent("");
-                                        }}
-                                    />
-                                );
-                            })
-                        }
-                    </Geographies>
-                </ComposableMap>
+                <div>
+                    <ComposableMap>
+                        <Geographies geography={this.state.geoUrl}>
+                            {({ geographies }) =>
+                                geographies.map(geo => {
+                                    //console.log(geo);  
+                                    const cur = this.state.players.find(s => s.CountryCode === geo.properties.ISO_A2.toLowerCase());
+                                    return (
+                                        <Geography
+                                            key={geo.rsmKey}
+                                            geography={geo}
+                                            fill={cur ? colorScale(cur.TotalUSDPrize) : "#EEE"}
+                                            onMouseEnter={() => {
+                                                const { NAME, POP_EST } = geo.properties;
+                                                let outString = `${NAME} — ${this.rounded(POP_EST)}`;
+                                                this.props.setTooltipContent(outString);
+                                            }}
+                                            onMouseLeave={() => {
+                                                this.props.setTooltipContent("");
+                                            }}
+                                        />
+                                    );
+                                })
+                            }
+                        </Geographies>
+                    </ComposableMap>
+                </div>
             );
         }
     }
