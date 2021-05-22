@@ -109,7 +109,8 @@ class HighestEarningPlayersMap extends React.Component {
                                         fill={cur ? colorScale(cur.TotalUSDPrize) : "#EEE"}
                                         onMouseEnter={() => {
                                             const { NAME, POP_EST } = geo.properties;
-                                            this.props.setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
+                                            let outString = `${NAME} — ${this.rounded(POP_EST)}`;
+                                            this.props.setTooltipContent("blabla");
                                         }}
                                         onMouseLeave={() => {
                                             this.props.setTooltipContent("");
