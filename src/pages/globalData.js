@@ -6,6 +6,7 @@ import Chart from "../components/Chart";
 import HistoricalChart from "../components/HistoricalChart";
 import MostViewed12Months from "../components/MostViewed12MonthsGraph";
 import MostPlayed12Months from "../components/MostPlayed12MonthsGraph";
+import HighestEarningPlayers from "../components/HighestEarningPlayersChart";
 import * as styles from "./globalData.module.css";
 
 
@@ -31,6 +32,14 @@ const GlobalData = () => {
               </div>
               <div className={styles.chartWrapper}>
                 <MostPlayed12Months className={styles.chart2} />
+              </div>
+            </div>
+            <div className={styles.mainCharts} >
+              <div className={styles.chartWrapper}>
+                <HighestEarningPlayers className={styles.chart2} />
+              </div>
+              <div className={styles.chartWrapper}>
+                <HighestEarningPlayers className={styles.chart2} />
               </div>
             </div>
           </div>
