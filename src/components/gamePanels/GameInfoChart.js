@@ -302,7 +302,9 @@ export default class GameInfoChart extends React.Component {
                         pinch: {
                             enabled: true
                         },
-                        enabled: true,
+                        /*drag: {
+                            enabled: true
+                        },*/
                         mode: 'x'
                     },
                     limits: {
