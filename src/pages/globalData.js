@@ -7,15 +7,11 @@ import HistoricalChart from "../components/HistoricalChart";
 import MostViewed12Months from "../components/MostViewed12MonthsGraph";
 import MostPlayed12Months from "../components/MostPlayed12MonthsGraph";
 import HighestEarningPlayers from "../components/HighestEarningPlayersChart";
+import WsdmHighestEarningCountriesMap from "../components/WsdmHighestEarningCountriesMap";
 import * as styles from "./globalData.module.css";
-import HighestEarningPlayersMap from "../components/HighestEarningPlayersMap";
-import ReactDOM from "react-dom";
-import ReactTooltip from "react-tooltip";
-import MapWithTooltip from "../components/MapWithTooltip";
-
 
 //could be remade by movinig the api request here by making GlobalData a class and then passing data as props to the charts
-export default class GlobalData extends React.Component{
+export default class GlobalData extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +47,13 @@ export default class GlobalData extends React.Component{
                   <HighestEarningPlayers className={styles.chart2} />
                 </div>
                 <div className={styles.chartWrapper}>
-                  <MapWithTooltip></MapWithTooltip>
+                  <HighestEarningPlayers className={styles.chart2} />
+                </div>
+              </div>
+              <div className={styles.mapContainer}>
+                <h4>Highest Earning Countries</h4>
+                <div className={styles.mapWrapper}>
+                  <WsdmHighestEarningCountriesMap width={"100%"} heigth={"auto"} />
                 </div>
               </div>
             </div>
