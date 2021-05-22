@@ -25,7 +25,7 @@ export default class HighestEarningPlayersChart extends React.Component {
         let earnings = [];
 
         data[0].forEach((element) => {
-            labels.push(element.CurrentHandle);
+            labels.push(element.Game + " | " +  element.CurrentHandle);
             earnings.push(element.TotalUSDPrize);
         });
 
