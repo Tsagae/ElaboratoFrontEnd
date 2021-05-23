@@ -107,7 +107,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
 
             return (
                 <ComposableMap>
-                    <ZoomableGroup zoom={1}>
+                    <ZoomableGroup zoom={1.1}>
                         <Geographies geography={this.state.geoUrl}>
                             {({ geographies }) =>
                                 geographies.map(geo => {
