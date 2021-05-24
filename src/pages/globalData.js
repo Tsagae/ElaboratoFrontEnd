@@ -23,7 +23,7 @@ export default class GlobalData extends React.Component {
 
   render() {
 
-    const WsdmHighestEarningCountriesMap = React.lazy(() => import("../components/WsdmHighestEarningCountriesMap"));
+   // const WsdmHighestEarningCountriesMap = React.lazy(() => import("../components/WsdmHighestEarningCountriesMap"));
 
     return (
       <div>
