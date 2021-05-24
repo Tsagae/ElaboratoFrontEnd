@@ -14,7 +14,7 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-left: 36px;
+  margin-left: 30px;
 }
 
 #Search::-webkit-search-cancel-button {

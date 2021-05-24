@@ -8,7 +8,9 @@ export default function Layout({ children }) {
     <div>
       <Navbar></Navbar>
       <div className={styles.container}>
-        <h1>Titolo</h1>
+        <div className={styles.title}>
+          <h1>EsportWatcher</h1>
+        </div>
         {children}
       </div>
     </div>
