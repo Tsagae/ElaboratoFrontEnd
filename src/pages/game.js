@@ -5,7 +5,8 @@ import TwitchThumbnail from "../components/TwitchThumbnail";
 import GameInfoChart from "../components/gamePanels/GameInfoChart";
 import EsportDetailPanel from "../components/gamePanels/EsportDetailPanel";
 import TwitchDetailPanel from "../components/gamePanels/TwitchDetailPanel";
-
+import HighestEarningPlayersGameList from "../components/gamePanels/HighestEarningPlayersGameList";
+import TournamentsList from "../components/gamePanels/TournamentsList";
 export default class Game extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +17,7 @@ export default class Game extends React.Component {
             HistoricalEsportData_Data: [],
             TwitchEsportGames_Data: [],
             TwitchDataSummary: [],
+            TopEarningPlayers: [],
         };
     }
 
@@ -39,10 +41,13 @@ export default class Game extends React.Component {
                     HistoricalEsportData_Data: JSON.parse(data)[1],
                     TwitchEsportGames_Data: JSON.parse(data)[2],
                     TwitchDataSummary: JSON.parse(data)[3],
+                    TopEarningPlayers: JSON.parse(data)[4],
                 });
                 console.log(this.state);
             });
     }
+
+
 
     render() {
         if (!this.state.loaded) {
@@ -93,8 +98,13 @@ export default class Game extends React.Component {
                                     <GameInfoChart innertChartWrapper={styles.innertChartWrapper} className={styles.gameInfoChart} twitchData={this.state.TwitchEsportGames_Data} historicalEsportData={this.state.HistoricalEsportData_Data} />
                                 </div>
                             </div>
-                            <div>
-                                TODO Tournament Data
+                            <div className={styles.chartRow}>
+                                <div>
+                                    <HighestEarningPlayersGameList playersData={this.state.TopEarningPlayers} />
+                                </div>
+                                <div>
+                                    <TournamentsList gameID={this.state.gameID} offset={0} limit={20} />
+                                </div>
                             </div>
                         </div>
                     </Layout>
