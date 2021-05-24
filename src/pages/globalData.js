@@ -55,14 +55,14 @@ export default class GlobalData extends React.Component {
                   <HighestEarningPlayers className={styles.chart2} />
                 </div>
               </div>
-              <Suspense fallback={<Loader/>}>
+              
                 <div className={styles.mapContainer}>
                   <h4>Highest Earning Countries</h4>
                   <div className={styles.mapWrapper}>
                     <WsdmHighestEarningCountriesMap width={"100%"} heigth={"auto"} />
                   </div>
                 </div>
-              </Suspense>
+             
             </div>
           </div>
         </Layout>
