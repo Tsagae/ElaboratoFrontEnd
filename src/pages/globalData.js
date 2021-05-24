@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Suspense } from "react";
+//import { Suspense } from "react";
 import "../globalStyle/globalStyle.css";
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
