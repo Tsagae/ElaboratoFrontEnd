@@ -1,15 +1,41 @@
 body {
-  background-color: #202124;
+  background-color: #181818;
   color: white;
   margin: 0px;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: white;
+  /*color: white;*/
   text-decoration: none;
 }
 
 h4 {
   margin: 0px;
+  color: white;
+}
+
+h4 {
+  margin: 0px;
+  color: white;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #666666; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #373737; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #212121; 
 }
