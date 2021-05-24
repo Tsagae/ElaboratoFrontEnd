@@ -113,7 +113,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
                                 geographies.map(geo => {
                                     //console.log(geo);  
                                     const cur = this.state.players.find(s => s.CountryCode === geo.properties.ISO_A2.toLowerCase());
-                                    let TotUSDPrize = Object.assign({}, cur).TotalUSDPrize;
+                                    let TotUSDPrize = this.rounded(Object.assign({}, cur).TotalUSDPrize);
                                     return (
                                         <Geography
                                             key={geo.rsmKey}
@@ -121,7 +121,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
                                             fill={cur ? colorScale(cur.TotalUSDPrize) : "#656565"}
                                             onMouseEnter={(evt) => {
                                                 const { NAME, POP_EST } = geo.properties;
-                                                let outString = `${NAME} - ${(typeof TotUSDPrize == 'undefined') ? "No data" : TotUSDPrize}`;
+                                                let outString = `${NAME} - ${(typeof TotUSDPrize == 'undefined') ? "No data" : "$" + TotUSDPrize}`;
                                                 this.tip.show("<div class=\"wsdm-tooltip\" style=\"background-color:rgb(38, 39, 41)\">" + outString + "</div>");
                                                 this.tip.position({ pageX: evt.pageX, pageY: evt.pageY });
                                             }}
