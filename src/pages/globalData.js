@@ -9,7 +9,7 @@ import HistoricalChart from "../components/HistoricalChart";
 import MostViewed12Months from "../components/MostViewed12MonthsGraph";
 import MostPlayed12Months from "../components/MostPlayed12MonthsGraph";
 import HighestEarningPlayers from "../components/HighestEarningPlayersChart";
-//import WsdmHighestEarningCountriesMap from "../components/WsdmHighestEarningCountriesMap";
+import WsdmHighestEarningCountriesMap from "../components/WsdmHighestEarningCountriesMap";
 import * as styles from "./globalData.module.css";
 
 //could be remade by movinig the api request here by making GlobalData a class and then passing data as props to the charts
