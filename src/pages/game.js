@@ -49,7 +49,7 @@ export default class Game extends React.Component {
             return (
                 <div>
                     <Layout>
-                        <div className={styles.mainContent}>
+                        <div className={styles.mainContainer}>
                             <h5>Loading...</h5>
                         </div>
                     </Layout>
@@ -59,7 +59,7 @@ export default class Game extends React.Component {
             return (
                 <div>
                     <Layout>
-                        <div className={styles.mainContent}>
+                        <div className={styles.mainContainer}>
                             <h2> Invalid Game :( </h2>
                         </div>
                     </Layout>
