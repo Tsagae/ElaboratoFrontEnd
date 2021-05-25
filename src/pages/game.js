@@ -103,7 +103,7 @@ export default class Game extends React.Component {
                                     <HighestEarningPlayersGameList playersData={this.state.TopEarningPlayers} />
                                 </div>
                                 <div>
-                                    <TournamentsList gameID={this.state.gameID} offset={0} limit={20} />
+                                    <TournamentsList gameID={this.state.gameID} offset={0} limit={30} />
                                 </div>
                             </div>
                         </div>
