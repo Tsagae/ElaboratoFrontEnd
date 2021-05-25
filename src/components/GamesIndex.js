@@ -60,7 +60,11 @@ export default class GamesIndex extends React.Component {
                                 <li>
                                     <Link to={`/game?gameID=${encodeURIComponent(item.GameID)}`}>
                                         <div className={styles.thumbNailTitleContainer}>
-                                            <TwitchThumbnail game={item.GameName} width={198} height={264} />
+                                            <div className={styles.thumbNailContainer}>
+                                                <div className={styles.twitchThumbnailWrapper}>
+                                                    <TwitchThumbnail game={item.GameName} width={198} height={264} />
+                                                </div>
+                                            </div>
                                             <h5 className={styles.gameName}>{item.GameName}</h5>
                                         </div>
                                     </Link>
