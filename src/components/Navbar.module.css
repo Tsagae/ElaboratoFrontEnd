@@ -5,15 +5,12 @@
    overflow: hidden;
 }
 
-.linkList div:hover{
+.navBtn:hover{
    background-color: #373737;
-}
-
-.linkList div h4:hover{
    color: white;
 }
 
-.linkListItem div{
+.navBtn{
    position:relative;
    display: inline;
    float: left;
@@ -24,4 +21,4 @@
    /*background-color: #092346;*/
    background-color: #212121;
    box-shadow: 0 8px 8px -10px rgb(0 0 0 / 15%);
-}
+}  
