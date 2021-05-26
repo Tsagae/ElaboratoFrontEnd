@@ -87,7 +87,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
             geoUrl: this.state.geoUrl,
             colorScale: this.state.colorScale,
             position: {
-                zoom: this.state.position.zoom * 2,
+                zoom: this.state.position.zoom * 1.5,
                 coordinates: this.state.position.coordinates,
             }
         });
@@ -101,7 +101,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
             geoUrl: this.state.geoUrl,
             colorScale: this.state.colorScale,
             position: {
-                zoom: this.state.position.zoom / 2,
+                zoom: this.state.position.zoom / 1.5,
                 coordinates: this.state.position.coordinates,
             }
         });
