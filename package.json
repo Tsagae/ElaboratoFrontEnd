@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fontsource/poppins": "^4.3.0",
     "babel-plugin-styled-components": "^1.12.0",
     "chart.js": "^3.2.1",
     "chartjs-plugin-downsample": "^1.1.0",
