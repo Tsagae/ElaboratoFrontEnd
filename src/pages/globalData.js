@@ -28,7 +28,7 @@ export default class GlobalData extends React.Component {
     return (
       <div>
         <Layout>
-          <div>
+          <div className={styles.mainContent}>
             <h1>Global Data about Twitch and Esport Games</h1>
             <div className={styles.indexLayout}>
               <div className={styles.mainCharts} >
