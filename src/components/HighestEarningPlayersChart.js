@@ -21,7 +21,7 @@ export default class HighestEarningPlayersChart extends React.Component {
     }
 
     processChartData(data) {
-        console.log(data);
+        //console.log(data);
 
         let labels = [];
         let earnings = [];

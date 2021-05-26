@@ -33,10 +33,10 @@ export default class HighestEarningPlayersGameList extends React.Component {
     };
 
     render() {
-        console.log(this.props.playersData);
+        //console.log(this.props.playersData);
         return (
             <div className={styles.mainContent}>
-                <h4>Most Paid Players</h4>
+                <h4>Highest Earning Players</h4>
                 <ul className={styles.playersList}>
                     {this.props.playersData.map(item => (
                         <React.Fragment key={item.PlayerID}>

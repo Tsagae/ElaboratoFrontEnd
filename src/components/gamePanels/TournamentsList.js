@@ -37,7 +37,7 @@ export default class TournamentsList extends React.Component {
                     Teamplay: JSON.parse(data)[0].Teamplay,
                     TotalUSDPrize: JSON.parse(data)[0].TotalUSDPrize*/
                 });
-                console.log(this.state);
+                //console.log(this.state);
             });
     }
 
@@ -84,7 +84,7 @@ export default class TournamentsList extends React.Component {
                                                 height={14}
                                             />
                                         </div>
-                                        <h5 data-tip={(item.Location + " " + Intl.DateTimeFormat("en-US", dateOptions).format(Date.parse(item.StartDate)) + " - " + Intl.DateTimeFormat("en-US", dateOptions).format(Date.parse(item.EndDate)))} onClick={() => window.open("https://www.esportsearnings.com/tournaments/" + item.TournamentId, '_blank')}>{item.TournamentName + " $" + this.rounded(item.TotalUSDPrize)}</h5>
+                                        <h5 data-tip={(item.Location + " | " + Intl.DateTimeFormat("en-US", dateOptions).format(Date.parse(item.StartDate)) + " - " + Intl.DateTimeFormat("en-US", dateOptions).format(Date.parse(item.EndDate)))} onClick={() => window.open("https://www.esportsearnings.com/tournaments/" + item.TournamentId, '_blank')}>{item.TournamentName + " $" + this.rounded(item.TotalUSDPrize)}</h5>
                                         <ReactTooltip />
                                     </div>
                                 </li>
