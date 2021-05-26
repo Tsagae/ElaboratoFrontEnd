@@ -43,7 +43,7 @@ export default class Game extends React.Component {
                     TwitchDataSummary: JSON.parse(data)[3],
                     TopEarningPlayers: JSON.parse(data)[4],
                 });
-                console.log(this.state);
+                //console.log(this.state);
             });
     }
 
@@ -72,7 +72,7 @@ export default class Game extends React.Component {
             );
         }
         else {
-            console.log(this.state.TwitchEsportGames_Data);
+            //console.log(this.state.TwitchEsportGames_Data);
             return (
                 <div>
                     <Layout>
