@@ -3,22 +3,46 @@
   justify-content: space-evenly;
 }
 
-.chartWrapper {
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contentRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.paragraphWrapper{
   width: 50%;
 }
 
-.indexLayout {
-  
+.contentRow h1 {
+  display: flex;
+  justify-content: center;
+  margin: 30px, 0px;
+  -ms-transform: rotate(-20deg);
+  transform: rotate(-20deg);
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 5em;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-shadow: -2px 1px 1px #919191, -2px 0px 1px #919191, -2px 3px 1px #919191,
+    -2px 4px 1px #919191, -2px 5px 1px #919191, -2px 6px 1px #919191,
+    -2px 7px 1px #919191, -2px 8px 1px #919191, -2px 9px 1px #919191,
+    -2px 10px 1px #919191, -2px 18px 6px rgba(16, 16, 16, 0.4);
 }
 
-.chart1 {
-  height: 300px;
+.chartWrapper{
+  width: 70%;
+  margin-bottom: 70px;
 }
-
-.chart2 {
-  height: 400px;
-}
-
 /*
 @media screen and (max-width: 1000px) {
     .mainCharts{
@@ -32,11 +56,5 @@
 */
 
 @media screen and (orientation: portrait) {
-  .mainCharts {
-    display: block;
-  }
-
-  .chartWrapper {
-    width: 100%;
-  }
+ 
 }
