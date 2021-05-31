@@ -1,25 +1,46 @@
 .mainCharts {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .chartWrapper {
-    width: 50%;
-  }
-  
-  .indexLayout {
-    
-  }
-  
-  .chart1 {
-    height: 300px;
-  }
-  
-  .chart2 {
-    height: 400px;
-  }
-  
-  /*
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.mainContent h1{
+  text-align: center;
+}
+
+.chartWrapper {
+  width: 50%;
+}
+
+.indexLayout {
+  display: block;
+}
+
+.chart1 {
+  height: 300px;
+}
+
+.chart2 {
+  height: 400px;
+}
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.mapWrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+}
+
+/*
   @media screen and (max-width: 1000px) {
       .mainCharts{
           display: block;
@@ -30,14 +51,23 @@
       }
   }
   */
-  
-  @media screen and (orientation: portrait) {
-    .mainCharts {
-      display: block;
-    }
-  
-    .chartWrapper {
-      width: 100%;
-    }
+
+@media screen and (orientation: portrait) {
+  .mainCharts {
+    display: block;
   }
-  
+
+  .chartWrapper {
+    width: 100%;
+  }
+
+  .mapWrapper {
+    margin-top: 10px;
+    border: 5px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200%;
+    width: 100%;
+  }
+}

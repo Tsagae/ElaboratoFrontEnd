@@ -25,7 +25,6 @@ export default class Games extends React.Component {
             <div>
                 <Layout>
                     <div>
-                        <h1>Content</h1>
                         <div className={styles.searchBarContainer}>
                             <input type="search" className={styles.bar} placeholder="Ricerca" onChange={this.handleSearchChange} />
                             <StaticImage

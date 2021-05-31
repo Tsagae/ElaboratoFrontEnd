@@ -4,7 +4,7 @@
   min-width: 150px;
   border: none;
   background: 0 0;
-  border-bottom: 1px solid #404244a4;
+  border-bottom: 1px solid #666666;
   color: white;
   outline: none;
   font-size: 25px;
@@ -14,7 +14,7 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-left: 36px;
+  margin-left: 30px;
 }
 
 #Search::-webkit-search-cancel-button {
@@ -36,7 +36,7 @@ input[type="search" i]::-webkit-search-cancel-button {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #75797ca4;
+  color: #666666;
   opacity: 1; /* Firefox */
 }
 

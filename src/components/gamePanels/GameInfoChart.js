@@ -1,6 +1,8 @@
 import * as React from "react";
 import "../../globalStyle/globalStyle.css";
 import { Line } from "react-chartjs-2";
+import { Chart } from "chart.js";
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 export default class GameInfoChart extends React.Component {
     constructor(props) {
@@ -11,6 +13,7 @@ export default class GameInfoChart extends React.Component {
             labels: [],
             twitchData_Avg_viewers: [],
             twitchData_Peak_viewers: [],
+            viewersToPlayersConversionRate: [],
             //twitchData_Avg_viewers: [],
             historicalEsportData_Players: [],
             historicalEsportData_Earnings: [],
@@ -18,8 +21,10 @@ export default class GameInfoChart extends React.Component {
         };
     }
 
+
     componentDidMount() {
         this.processChartData();
+        Chart.register(zoomPlugin);
     }
 
     processChartData() {
@@ -43,7 +48,7 @@ export default class GameInfoChart extends React.Component {
                 //Intl.DateTimeFormat("en-US", dateOptions).format(date)
                 date
             );
-            if(labels.indexOf(date) == -1){
+            if (labels.indexOf(date) == -1) {
                 //labels.push(Intl.DateTimeFormat("en-US", dateOptions).format(date));
                 labels.push(date);
             }
@@ -59,38 +64,38 @@ export default class GameInfoChart extends React.Component {
         let historicalEsportData_Torunaments = [];
 
         this.props.historicalEsportData.forEach((element) => {
-            
+
             let date = Date.parse(element.Date);
             labels_historicalEsportData.push(
                 //Intl.DateTimeFormat("en-US", dateOptions).format(date)
                 date
             );
 
-            if(labels.indexOf(date) == -1){
+            if (labels.indexOf(date) == -1) {
                 //labels.push(Intl.DateTimeFormat("en-US", dateOptions).format(date));
                 labels.push(date);
             }
-            
+
             historicalEsportData_Players.push(element.Players);
             historicalEsportData_Earnings.push(element.Earnings);
             historicalEsportData_Torunaments.push(element.Tournaments);
         });
-       
-        labels.sort(function(a,b){
+
+        labels.sort(function (a, b) {
             // Turn your strings into dates, and then subtract them
             // to get a value that is either negative, positive, or zero.
             return new Date(a) - new Date(b);
-          });
-          
+        });
 
-        for(let i = 0; i < labels.length; i++){
-            if(labels[i] < labels_historicalEsportData[i]){
+
+        for (let i = 0; i < labels.length; i++) {
+            if (labels[i] < labels_historicalEsportData[i]) {
                 labels_historicalEsportData.splice(i, 0, labels[i]);
                 historicalEsportData_Players.splice(i, 0, null);
                 historicalEsportData_Earnings.splice(i, 0, null);
                 historicalEsportData_Torunaments.splice(i, 0, null);
             }
-            if(labels[i] < labels_twitchData[i]){
+            if (labels[i] < labels_twitchData[i]) {
                 labels_twitchData.splice(i, 0, labels[i]);
                 twitchData_Avg_viewers.splice(i, 0, null);
                 twitchData_Peak_viewers.splice(i, 0, null);
@@ -104,8 +109,14 @@ export default class GameInfoChart extends React.Component {
             } 
         }*/
 
-        for(let i = 0; i < labels.length; i++){
+        let viewersToPlayersConversionRate = [];
+        for (let i = 0; i < labels.length; i++) {
             labels.splice(i, 1, Intl.DateTimeFormat("en-US", dateOptions).format(labels[i]));
+            if (historicalEsportData_Players[i] != null && twitchData_Avg_viewers[i] != null) {
+                viewersToPlayersConversionRate.push(historicalEsportData_Players[i] / twitchData_Avg_viewers[i]);
+            } else {
+                viewersToPlayersConversionRate.push(null);
+            }
         }
 
         this.setState({
@@ -116,10 +127,10 @@ export default class GameInfoChart extends React.Component {
             historicalEsportData_Players: historicalEsportData_Players,
             historicalEsportData_Earnings: historicalEsportData_Earnings,
             historicalEsportData_Torunaments: historicalEsportData_Torunaments,
-
+            viewersToPlayersConversionRate: viewersToPlayersConversionRate
             //extra lables TODO remove for production
-            labels_historicalEsportData: labels_historicalEsportData,
-            labels_twitchData, labels_twitchData,
+            //labels_historicalEsportData: labels_historicalEsportData,
+            //labels_twitchData, labels_twitchData,
         });
     }
 
@@ -147,7 +158,18 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ffffff",
                     borderColor: "#ffffff",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-1',
+                    yAxisID: 'y-axis-2',
+                    spanGaps: true,
+                    tension: 0.3,
+                },
+                {
+                    label: "Viewers to Players Conversion Rate",
+                    data: this.state.viewersToPlayersConversionRate,
+                    fill: false,
+                    backgroundColor: "#00d0ff",
+                    borderColor: "#00d0ff",
+                    borderWidth: 0.8,
+                    yAxisID: 'y-axis-3',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -158,7 +180,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ff0000",
                     borderColor: "#ff0000",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-2',
+                    yAxisID: 'y-axis-4',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -169,7 +191,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "rgba(56,161,69,1)",
                     borderColor: "rgba(56,161,69,1)",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-3',
+                    yAxisID: 'y-axis-5',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -180,7 +202,7 @@ export default class GameInfoChart extends React.Component {
                     backgroundColor: "#ffe100",
                     borderColor: "#ffe100",
                     borderWidth: 0.8,
-                    yAxisID: 'y-axis-4',
+                    yAxisID: 'y-axis-6',
                     spanGaps: true,
                     tension: 0.3,
                 },
@@ -193,59 +215,118 @@ export default class GameInfoChart extends React.Component {
             scales: {
                 yAxes: [
                     {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-1',
+                        ticks: { display: false },
                         gridLines: {
-                            drawOnArea: false,
-                        },
+                            display: false,
+                            drawBorder: false
+                        }
                     },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-2',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-3',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
-                    {
-                        type: 'linear',
-                        display: false,
-                        position: 'right',
-                        id: 'y-axis-4',
-                        gridLines: {
-                            drawOnArea: false,
-                        },
-                    },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-1',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-2',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-3',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-4',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-5',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
+                     {
+                         type: 'linear',
+                         display: false,
+                         position: 'right',
+                         id: 'y-axis-5',
+                         gridLines: {
+                             drawOnArea: false,
+                         },
+                     },
                 ],
+                xAxes: [{
+                    display: false,
+                }]
             },
             layout: {
                 padding: {
                     left: 0,
-                    right: 0,
+                    right: 100,
                 },
             },
             plugins: {
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x',
+                        speed: 1, //most likely doesen't work
+                        threshold: 10 //most likely doesen't work
+                        
+                    },
+                    zoom: {
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        /*drag: {
+                            enabled: true
+                        },*/
+                        mode: 'x'
+                    },
+                    limits: {
+                        x: {
+                            minDelay: 0,
+                            maxDelay: 4000,
+                            minDuration: 1000,
+                            maxDuration: 20000
+                        }
+                    }
+                },
+
                 labels: {
                     fontColor: "#a83232", //not working
                 },
                 legend: {
                     display: true, //working
                     position: 'top',
+                    align: 'end'
                 },
                 title: {
-                    display: true, //working
+                    display: false, //working
                     text: "Data Over Time",
                 },
 
@@ -254,10 +335,11 @@ export default class GameInfoChart extends React.Component {
         };
 
         return (
-            <div>
+            <div className={this.props.innertChartWrapper}>
                 <Line
                     data={data}
                     options={options}
+                    plugins={[zoomPlugin]}
                     className={this.props.className}
                 />
             </div>

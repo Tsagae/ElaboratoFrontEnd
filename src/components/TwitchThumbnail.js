@@ -22,7 +22,7 @@ export default class TwitchThumbinail extends React.Component {
     }
     finalString = finalString.slice(0, -3);*/
     let imgSrc = "https://static-cdn.jtvnw.net/ttv-boxart/" + encodeURIComponent(this.props.game) + "-285x380.jpg";
-    console.log(imgSrc);
+    //console.log(imgSrc);
     this.setState({
       loaded: true,
       game: imgSrc,
@@ -47,7 +47,7 @@ export default class TwitchThumbinail extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div style={{ width: 'fit-content', height: 'fit-content' }}>
           <LazyLoadImage
             src={this.state.game}
             alt={this.props.game}

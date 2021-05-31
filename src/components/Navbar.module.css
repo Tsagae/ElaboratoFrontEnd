@@ -5,7 +5,12 @@
    overflow: hidden;
 }
 
-.linkListItem div{
+.navBtn:hover{
+   background-color: #373737;
+   color: white;
+}
+
+.navBtn{
    position:relative;
    display: inline;
    float: left;
@@ -14,6 +19,6 @@
 
 .container{
    /*background-color: #092346;*/
-   background-color: #262729;
+   background-color: #212121;
    box-shadow: 0 8px 8px -10px rgb(0 0 0 / 15%);
-}
+}  

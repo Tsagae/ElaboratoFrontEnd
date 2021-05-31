@@ -17,7 +17,7 @@ export default class Searchbar extends React.Component {
         <form>
           <input type="search" className={styles.bar} placeholder="Scrivi qua" />
         </form>
-        <button style={styles.btnImage} >
+        <button className={styles.btnImage} >
           <StaticImage
             src="../images/searchIcon.png"
             placeholder="blurred"

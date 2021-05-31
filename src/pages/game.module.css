@@ -1,30 +1,45 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .topInfoPanel {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
-.detailInfoBox{
-  margin: 0px 80px;
-  flex-grow: 2;
+.twitchThumbnail {
+  margin-left: 0px;
+  margin-bottom: 0px;
 }
 
-.infoPanels{
+.detailInfoBox {
+}
+
+.infoPanels {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .generalGameInfo {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
   justify-content: center;
   align-items: center;
+}
+
+.generalGameInfo h2 {
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 .generalGameInfo p {
@@ -34,9 +49,82 @@
 }
 
 .gameInfoChartContainer {
+  position: relative;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.gameInfoChartWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.innertChartWrapper {
+  position: relative;
+  height: 380px;
+  width: 125%;
 }
 
 .gameInfoChart {
-  height: 380px;
+  position: absolute;
+  left: -260px;
+}
+
+.chartRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.chartWrapper {
+  width: 50%;
+}
+
+@media screen and (max-width: 1025px) {
+  .twitchThumbnail {
+    margin-left: 0px;
+    margin-bottom: 0px;
+    width: fit-content;
+  }
+
+  .topInfoPanel {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .detailInfoBox {
+    width: 100%;
+  }
+
+  .chartWrapper {
+    width: 100%;
+  }
+
+  .chartRow {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1415px) {
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 115%;
+  }
+
+  .gameInfoChart {
+    position: absolute;
+    left: -250px;
+  }
 }
