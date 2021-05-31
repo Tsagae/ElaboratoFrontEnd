@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as styles from "./game.module.css";
+import "../globalStyle/globalStyle.css";
 import Layout from "../components/Layout";
 import TwitchThumbnail from "../components/TwitchThumbnail";
 import GameInfoChart from "../components/gamePanels/GameInfoChart";
