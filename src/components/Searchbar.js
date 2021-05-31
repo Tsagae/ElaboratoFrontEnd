@@ -19,7 +19,7 @@ export default class Searchbar extends React.Component {
         </form>
         <button className={styles.btnImage} >
           <StaticImage
-            src="../images/searchIcon.png"
+            src="../images/whitesearchIcon.png"
             placeholder="blurred"
             layout="fixed"
             width={30}
