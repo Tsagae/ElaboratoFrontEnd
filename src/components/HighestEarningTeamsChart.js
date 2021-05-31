@@ -4,7 +4,7 @@ import { Bar } from "react-chartjs-2";
 import Loader from "./Loader";
 //import DownsamplePlugin from 'chartjs-plugin-downsample';
 
-export default class HighestEarningPlayersChart extends React.Component {
+export default class HighestEarningTeamsChart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,7 +15,7 @@ export default class HighestEarningPlayersChart extends React.Component {
     }
 
     componentDidMount() {
-        fetch("https://mzaghenoapi.sytes.net/queryDB/getHighestEarningPlayersOffset?offset=0&limit=15")
+        fetch("https://mzaghenoapi.sytes.net/queryDB/getHighestEarningTeams")
             .then((res) => res.text())
             .then((data) => this.processChartData(JSON.parse(data)));
     }
@@ -27,7 +27,7 @@ export default class HighestEarningPlayersChart extends React.Component {
         let earnings = [];
 
         data[0].forEach((element) => {
-            labels.push(element.CurrentHandle);
+            labels.push(element.TeamName);
             earnings.push(element.TotalUSDPrize);
         });
 
@@ -51,8 +51,8 @@ export default class HighestEarningPlayersChart extends React.Component {
                         label: "Earnings",
                         data: this.state.earnings,
                         fill: false,
-                        backgroundColor: "#298a34",
-                        borderColor: "#298a34",
+                        backgroundColor: "#0700ff",
+                        borderColor: "#0700ff",
                         borderWidth: 1,
                     },
                 ],
@@ -78,7 +78,7 @@ export default class HighestEarningPlayersChart extends React.Component {
                     },
                     title: {
                         display: true, //working
-                        text: "Highest Earning Players",
+                        text: "Highest Earning Teams",
                     },
 
                 }

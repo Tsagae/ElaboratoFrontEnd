@@ -8,9 +8,10 @@ import Chart from "../components/Chart";
 import HistoricalChart from "../components/HistoricalChart";
 import MostViewed12Months from "../components/MostViewed12MonthsGraph";
 import MostPlayed12Months from "../components/MostPlayed12MonthsGraph";
-import HighestEarningPlayers from "../components/HighestEarningPlayersChart";
 import WsdmHighestEarningCountriesMap from "../components/WsdmHighestEarningCountriesMap";
 import * as styles from "./globalData.module.css";
+import HighestEarningTeamsChart from "../components/HighestEarningTeamsChart";
+import HighestEarningPlayersChart from "../components/HighestEarningPlayersChart";
 
 //could be remade by movinig the api request here by making GlobalData a class and then passing data as props to the charts
 export default class GlobalData extends React.Component {
@@ -49,10 +50,10 @@ export default class GlobalData extends React.Component {
               </div>
               <div className={styles.mainCharts} >
                 <div className={styles.chartWrapper}>
-                  <HighestEarningPlayers className={styles.chart2} />
+                  <HighestEarningPlayersChart className={styles.chart2} />
                 </div>
                 <div className={styles.chartWrapper}>
-                  <HighestEarningPlayers className={styles.chart2} />
+                  <HighestEarningTeamsChart className={styles.chart2} />
                 </div>
               </div>
               
