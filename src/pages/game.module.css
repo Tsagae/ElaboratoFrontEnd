@@ -114,6 +114,64 @@
     flex-wrap: wrap;
     align-items: center;
   }
+
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 138%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 150%;
+  }
+
+  .gameInfoChart {
+    position: absolute;
+    left: -250px;
+  }
+}
+
+@media screen and (max-width: 663px) {
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 160%;
+  }
+
+  .gameInfoChart {
+    position: absolute;
+    left: -250px;
+  }
+}
+
+@media screen and (max-width: 585px) {
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 168%;
+  }
+
+  .gameInfoChart {
+    position: absolute;
+    left: -250px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .innertChartWrapper {
+    position: relative;
+    height: 380px;
+    width: 180%;
+  }
+
+  .gameInfoChart {
+    position: absolute;
+    left: -250px;
+  }
 }
 
 @media screen and (min-width: 1415px) {
