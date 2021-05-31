@@ -12,7 +12,7 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameID: 86, //CSGO as default
+            gameID: 0,
             loaded: false,
             EsportGames_Data: [],
             HistoricalEsportData_Data: [],
@@ -44,7 +44,6 @@ export default class Game extends React.Component {
                     TwitchDataSummary: JSON.parse(data)[3],
                     TopEarningPlayers: JSON.parse(data)[4],
                 });
-                //console.log(this.state);
             });
     }
 
@@ -73,7 +72,6 @@ export default class Game extends React.Component {
             );
         }
         else {
-            //console.log(this.state.TwitchEsportGames_Data);
             return (
                 <div>
                     <Layout>
