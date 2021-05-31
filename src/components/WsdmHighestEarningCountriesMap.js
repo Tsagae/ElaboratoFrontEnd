@@ -156,7 +156,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
                 ]);
 
             return (
-                <div style={{ width: this.props.width, height: this.props.height, position: "relative", border: "4px solid", borderColor: "#4da246" }}>
+                <div style={{ width: this.props.width, height: this.props.height, position: "relative", border: "4px solid", borderColor: "#666666" }}>
                     <div className={styles.controls}>
                         <button className={styles.btn} onClick={this.handleZoomIn.bind(this)}>
                             <svg className={styles.imgBtn}
