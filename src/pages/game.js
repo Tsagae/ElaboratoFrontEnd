@@ -11,7 +11,7 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameID: 86, //CSGO as default
+            gameID: 0,
             loaded: false,
             EsportGames_Data: [],
             HistoricalEsportData_Data: [],
