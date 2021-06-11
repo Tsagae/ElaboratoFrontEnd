@@ -4,10 +4,10 @@ import Layout from "../components/Layout";
 import * as styles from "./index.module.css";
 import { StaticImage } from "gatsby-plugin-image";
 import AnnualEsportGrowthChart from "../components/AnnualEsportGrowthChart";
-import Languages from "../languages/Languages";
+//import Languages from "../languages/Languages";
 
 const IndexPage = () => {
-  var languages = Languages.Languages.prototype;
+  //var languages = Languages.Languages.prototype;
   return (
     <Layout>
       <div className={styles.mainContainer}>
