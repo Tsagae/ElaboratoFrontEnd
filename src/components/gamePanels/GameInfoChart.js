@@ -13,7 +13,7 @@ export default class GameInfoChart extends React.Component {
             labels: [],
             twitchData_Avg_viewers: [],
             twitchData_Peak_viewers: [],
-            viewersToPlayersConversionRate: [],
+            //viewersToPlayersConversionRate: [],
             //twitchData_Avg_viewers: [],
             historicalEsportData_Players: [],
             historicalEsportData_Earnings: [],
@@ -109,14 +109,15 @@ export default class GameInfoChart extends React.Component {
             } 
         }*/
 
-        let viewersToPlayersConversionRate = [];
+        //let viewersToPlayersConversionRate = [];
         for (let i = 0; i < labels.length; i++) {
             labels.splice(i, 1, Intl.DateTimeFormat("en-US", dateOptions).format(labels[i]));
+            /*
             if (historicalEsportData_Players[i] != null && twitchData_Avg_viewers[i] != null) {
                 viewersToPlayersConversionRate.push(historicalEsportData_Players[i] / twitchData_Avg_viewers[i]);
             } else {
                 viewersToPlayersConversionRate.push(null);
-            }
+            }*/
         }
 
         this.setState({
@@ -127,7 +128,7 @@ export default class GameInfoChart extends React.Component {
             historicalEsportData_Players: historicalEsportData_Players,
             historicalEsportData_Earnings: historicalEsportData_Earnings,
             historicalEsportData_Torunaments: historicalEsportData_Torunaments,
-            viewersToPlayersConversionRate: viewersToPlayersConversionRate
+            //viewersToPlayersConversionRate: viewersToPlayersConversionRate
             //extra lables TODO remove for production
             //labels_historicalEsportData: labels_historicalEsportData,
             //labels_twitchData, labels_twitchData,
@@ -162,7 +163,7 @@ export default class GameInfoChart extends React.Component {
                     spanGaps: true,
                     tension: 0.3,
                 },
-                {
+                /*{
                     label: "Viewers to Players Conversion Rate",
                     data: this.state.viewersToPlayersConversionRate,
                     fill: false,
@@ -172,7 +173,7 @@ export default class GameInfoChart extends React.Component {
                     yAxisID: 'y-axis-3',
                     spanGaps: true,
                     tension: 0.3,
-                },
+                },*/
                 {
                     label: "Players",
                     data: this.state.historicalEsportData_Players,
