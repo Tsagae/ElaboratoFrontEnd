@@ -1,7 +1,6 @@
 import * as React from "react";
 import "../globalStyle/globalStyle.css";
 import { Bar } from "react-chartjs-2";
-import { Line } from "react-chartjs-2";
 
 export default class Chart extends React.Component {
   constructor(props) {

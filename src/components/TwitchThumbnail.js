@@ -1,6 +1,5 @@
 import * as React from "react";
 import "../globalStyle/globalStyle.css";
-import { StaticImage } from "gatsby-plugin-image";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default class TwitchThumbinail extends React.Component {

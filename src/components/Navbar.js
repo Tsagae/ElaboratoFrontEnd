@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import * as React from "react";
 import * as styles from "./Navbar.module.css";
 import "../globalStyle/globalStyle.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default class Navbar extends React.Component {
   constructor(props) {

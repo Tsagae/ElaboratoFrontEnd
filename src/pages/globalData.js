@@ -3,7 +3,6 @@ import * as React from "react";
 import "../globalStyle/globalStyle.css";
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
-import Searchbar from "../components/Searchbar";
 import Chart from "../components/Chart";
 import HistoricalChart from "../components/HistoricalChart";
 import MostViewed12Months from "../components/MostViewed12MonthsGraph";

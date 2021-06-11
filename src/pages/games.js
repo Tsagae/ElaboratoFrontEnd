@@ -1,8 +1,6 @@
 import * as React from "react";
 import * as styles from "./games.module.css";
 import Layout from "../components/Layout";
-import Searchbar from "../components/Searchbar";
-import TwitchThumbnail from "../components/TwitchThumbnail";
 import GamesIndex from "../components/GamesIndex";
 import { StaticImage } from "gatsby-plugin-image";
 

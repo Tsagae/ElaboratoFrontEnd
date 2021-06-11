@@ -2,7 +2,6 @@ import * as React from "react";
 import "../globalStyle/globalStyle.css";
 import Layout from "../components/Layout";
 import * as styles from "./index.module.css";
-import Arcade from "../components/Arcade";
 import { StaticImage } from "gatsby-plugin-image";
 import AnnualEsportGrowthChart from "../components/AnnualEsportGrowthChart";
 import Languages from "../languages/Languages";
