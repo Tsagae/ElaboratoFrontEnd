@@ -18,10 +18,12 @@ export default class Chart extends React.Component {
   }
 
   processChartData(data) {
+    /*
     const dateOptions = {
       year: "numeric",
       month: "long",
     };
+    */
 
     //TwitchGlobal_Players Data
     let labels_GameName = [];

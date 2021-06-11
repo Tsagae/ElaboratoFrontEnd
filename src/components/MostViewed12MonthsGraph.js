@@ -19,10 +19,12 @@ export default class MostViewed12MonthsGraph extends React.Component {
   }
 
   processChartData(data) {
+    /*
     const dateOptions = {
       year: "numeric",
       month: "long",
     };
+    */
 
     //TwitchGlobal_HoursWatched Data
     let labels_GameName = [];
