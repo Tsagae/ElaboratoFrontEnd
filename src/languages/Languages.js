@@ -9,8 +9,8 @@ class Languages {
     }
 
     blabla() {
-        if (this.checkForSessionStorageNotUndefinied() == true) {
-            if(sessionStorage.getItem("lang") == "gb"){
+        if (this.checkForSessionStorageNotUndefinied() === true) {
+            if(sessionStorage.getItem("lang") === "gb"){
                 return "GB";
             } else{
                 return "IT";
@@ -21,8 +21,8 @@ class Languages {
     }
 
     indexTitle1() {
-        if (this.checkForSessionStorageNotUndefinied() == true) {
-            if(sessionStorage.getItem("lang") == "gb"){
+        if (this.checkForSessionStorageNotUndefinied() === true) {
+            if(sessionStorage.getItem("lang") === "gb"){
                 return "GB";
             } 
         } else{

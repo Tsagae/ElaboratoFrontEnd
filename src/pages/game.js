@@ -60,7 +60,7 @@ export default class Game extends React.Component {
                     </Layout>
                 </div>
             );
-        } else if (this.state.loaded == "error") {
+        } else if (this.state.loaded === "error") {
             return (
                 <div>
                     <Layout>

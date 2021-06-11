@@ -48,7 +48,7 @@ export default class GameInfoChart extends React.Component {
                 //Intl.DateTimeFormat("en-US", dateOptions).format(date)
                 date
             );
-            if (labels.indexOf(date) == -1) {
+            if (labels.indexOf(date) === -1) {
                 //labels.push(Intl.DateTimeFormat("en-US", dateOptions).format(date));
                 labels.push(date);
             }
@@ -71,7 +71,7 @@ export default class GameInfoChart extends React.Component {
                 date
             );
 
-            if (labels.indexOf(date) == -1) {
+            if (labels.indexOf(date) === -1) {
                 //labels.push(Intl.DateTimeFormat("en-US", dateOptions).format(date));
                 labels.push(date);
             }

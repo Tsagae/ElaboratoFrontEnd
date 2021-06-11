@@ -26,7 +26,7 @@ export default class GamesIndex extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.state.searchStr != this.props.searchStr) {
+        if (this.state.searchStr !== this.props.searchStr) {
             this.setState({
                 loaded: this.state.loaded,
                 data: this.state.data,

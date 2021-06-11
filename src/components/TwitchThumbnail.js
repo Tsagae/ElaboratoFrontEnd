@@ -31,7 +31,7 @@ export default class TwitchThumbinail extends React.Component {
 
 
   render() {
-    if (this.state.loaded == false) {
+    if (this.state.loaded === false) {
       return (
         <div>
           <LazyLoadImage

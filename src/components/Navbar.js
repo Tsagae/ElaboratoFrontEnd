@@ -16,10 +16,10 @@ export default class Navbar extends React.Component {
 
   handleLanguageChange() {
     if (typeof (sessionStorage) != "undefined") {
-      if (sessionStorage.getItem("lang") == "it") {
+      if (sessionStorage.getItem("lang") === "it") {
         sessionStorage.setItem("lang", "gb");
         window.location.reload();
-      } else if (sessionStorage.getItem("lang") == "gb") {
+      } else if (sessionStorage.getItem("lang") === "gb") {
         sessionStorage.setItem("lang", "it");
         window.location.reload();
       }
