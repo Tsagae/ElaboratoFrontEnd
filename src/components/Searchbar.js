@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import * as React from "react";
 import * as styles from "./Searchbar.module.css";
 import "../globalStyle/globalStyle.css";
@@ -19,7 +18,7 @@ export default class Searchbar extends React.Component {
         </form>
         <button className={styles.btnImage} >
           <StaticImage
-            src="../images/whiteSearchIcon.png"
+            src="../images/searchIcon.png"
             placeholder="blurred"
             layout="fixed"
             width={30}

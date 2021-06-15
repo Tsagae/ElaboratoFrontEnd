@@ -1,5 +1,4 @@
 import React, { memo } from "react";
-import ReactDOM from "react-dom";
 import {
     ComposableMap,
     ZoomableGroup,
@@ -158,7 +157,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
             return (
                 <div style={{ width: this.props.width, height: this.props.height, position: "relative", border: "4px solid", borderColor: "#666666" }}>
                     <div className={styles.controls}>
-                        <button className={styles.btn} onClick={this.handleZoomIn.bind(this)}>
+                        <button onClick={this.handleZoomIn.bind(this)}>
                             <svg className={styles.imgBtn}
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -171,7 +170,7 @@ class WsdmHighestEarningCountriesMap extends React.Component {
                                 <line x1="5" y1="12" x2="19" y2="12" />
                             </svg>
                         </button>
-                        <button className={styles.btn} onClick={this.handleZoomOut.bind(this)}>
+                        <button onClick={this.handleZoomOut.bind(this)}>
                             <svg className={styles.imgBtn}
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"

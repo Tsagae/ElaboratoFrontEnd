@@ -2,7 +2,6 @@ import { Link } from "gatsby";
 import * as React from "react";
 import * as styles from "./Navbar.module.css";
 import "../globalStyle/globalStyle.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export default class Navbar extends React.Component {
   constructor(props) {
@@ -17,10 +16,10 @@ export default class Navbar extends React.Component {
 
   handleLanguageChange() {
     if (typeof (sessionStorage) != "undefined") {
-      if (sessionStorage.getItem("lang") == "it") {
+      if (sessionStorage.getItem("lang") === "it") {
         sessionStorage.setItem("lang", "gb");
         window.location.reload();
-      } else if (sessionStorage.getItem("lang") == "gb") {
+      } else if (sessionStorage.getItem("lang") === "gb") {
         sessionStorage.setItem("lang", "it");
         window.location.reload();
       }
